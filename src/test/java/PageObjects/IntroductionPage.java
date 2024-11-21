@@ -1,14 +1,14 @@
 package PageObjects;
 
 import org.testng.Assert;
-import StepDefinitions.Hooks;
+
+import BaseTest.BaseTest;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
-public class IntroductionPage {
-	WebDriver driver=Hooks.getDriver();
+public class IntroductionPage extends BaseTest{
 
 
 	By NumpyNinja =  By.cssSelector("a[href='/home']");
@@ -33,14 +33,13 @@ public class IntroductionPage {
 	By codeEditorPage=By.cssSelector("pre.codeMirror-line");
 	By codeInputField = By.cssSelector(".CodeMirror textarea");
 	By consoleOutput = By.cssSelector("#output");
-	By runButton=By.cssSelector("button[type='button']");
+	By runButton=By.cssSelector("button[type='button']");   
 	By arrayGetStartedBtn= By.cssSelector("a[href='array']");
 	By queueGetStartedBtn= By.cssSelector("a[href='queue']");
 	By stackGetStartedBtn= By.cssSelector("a[href='stack']");
 	By graphGetStartedBtn= By.cssSelector("a[href='graph']");
 
 	public void validateUserIsOnIntroductionPage() {
-
 		Assert.assertEquals(driver.findElement(NumpyNinja).getText(), "NumpyNinja"); 
 		Assert.assertTrue(driver.findElement(cardBody).isDisplayed());
 		Assert.assertTrue(driver.findElement(signInButton).isDisplayed());
@@ -73,7 +72,7 @@ public class IntroductionPage {
 	}
 
 	public void clickOnRegisterlink() {
-		driver.findElement(registerButton).click();
+		driver.findElement(registerButton).click();	
 	}
 	
 	public void clickOnSignInlink() {
@@ -87,13 +86,13 @@ public class IntroductionPage {
 	public void completeTheLOgin() {
 		driver.findElement(signInButton).click();
 		driver.findElement(userNameInputfield).sendKeys("qachamps3");
-		driver.findElement(passWordNameInputField).sendKeys("Ninjatest@123");
+		driver.findElement(passWordNameInputField).sendKeys("Ninjatest@123");	
 		driver.findElement(loginButton).click();
 		Assert.assertTrue(driver.findElement(displayQaChamps).isDisplayed());
 	}
 
 	public void clickOnGetStartedButtonOfDSIntroduction() {
-		driver.findElements(getStartedButtonOnCard).get(0).click();
+		driver.findElements(getStartedButtonOnCard).get(0).click();			
 	}
 
 	public void validateUserisOnDSIntroduction() {
@@ -101,7 +100,7 @@ public class IntroductionPage {
 		Assert.assertEquals(driver.findElement(dataStructurePageHeader).getText(), "Data Structures-Introduction");
 
 		Assert.assertEquals(driver.getCurrentUrl(), "https://dsportalapp.herokuapp.com/data-structures-introduction/");
-	}
+	}	
 	public void validateTimeComplexiButtonDisplayed() {
 		Assert.assertTrue(driver.findElement(dispalyTimeComplexity).isDisplayed());
 	}
@@ -111,12 +110,12 @@ public class IntroductionPage {
 	}
 
 	public void validateTimeComplexitypage() {
-		Assert.assertTrue(driver.findElement(timeComplexityPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(timeComplexityPage).isDisplayed());   
 		Assert.assertEquals(driver.findElement(timeComplexityPage).getText(), "Time Complexity");
 	}
 
 	public void clickOnTryHerebutton () {
-		driver.findElement(tryHereButton).click();
+		driver.findElement(tryHereButton).click();	  
 
 	}
 
@@ -130,7 +129,7 @@ public class IntroductionPage {
 	}
 
 	public void clickOnRunButton() {
-		driver.findElement(runButton).click();
+		driver.findElement(runButton).click();  
 	}
 	public void validateErrorMessageDisplayedOnAlert(String expectedErrorHeader, String expectedErrorMessage) {
 		Alert alert= driver.switchTo().alert();
@@ -140,11 +139,11 @@ public class IntroductionPage {
 	}
 
 	public void clickOnGetStartedButtonOfArray() {
-		driver.findElement(arrayGetStartedBtn).click();
+		driver.findElement(arrayGetStartedBtn).click();			
 	}
 
 	public void clickOnGetStartedButtonOfQueue() {
-		driver.findElement(queueGetStartedBtn).click();
+		driver.findElement(queueGetStartedBtn).click();			
 	}
 
 	public void clickOnGetStartedButtonOfStack() {

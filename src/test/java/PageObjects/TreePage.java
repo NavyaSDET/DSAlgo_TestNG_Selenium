@@ -1,21 +1,13 @@
-package pageObjects;
+package PageObjects;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class TreePage {
+import BaseTest.BaseTest;
 
-	public WebDriver driver;
-	RegistrationPage RGPage = new RegistrationPage(driver);
-
-	public TreePage(WebDriver rdriver) {
-
-		this.driver = rdriver;
-	}
-
-	//Tree Page general elements
+public class TreePage extends BaseTest{
 
 	private By Tree_GetStartedBtn_HomePage = By.xpath("//div[6]/div/div/a");
 	private By TreePageHeader = By.xpath("//div/h4");

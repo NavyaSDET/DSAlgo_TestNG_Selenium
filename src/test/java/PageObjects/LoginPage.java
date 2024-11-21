@@ -5,10 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import StepDefinitions.Hooks;
+import BaseTest.BaseTest;
 
-public class LoginPage {
-	WebDriver driver=Hooks.getDriver();
+public class LoginPage extends BaseTest{
 
 	By txt_username = By.id("id_username");
 	By txt_password = By.id("id_password");

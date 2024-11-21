@@ -1,20 +1,11 @@
-package pageObjects;
+package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LinkedListPage {
+import BaseTest.BaseTest;
 
-	public WebDriver driver;
-	RegistrationPage RGPage;
-	//TreePage tree = new TreePage(driver);
-
-	public LinkedListPage(WebDriver Ldriver) {
-
-		this.driver = Ldriver;
-	}
-
-	//LL Page general elements
+public class LinkedListPage extends BaseTest {
 
 	private By LL_GetStartedBtn_HomePage = By.xpath("//div[3]/div/div/a");
 	private By DataStructures_DropDownBtn = By.xpath("//a[@class='nav-link dropdown-toggle']");

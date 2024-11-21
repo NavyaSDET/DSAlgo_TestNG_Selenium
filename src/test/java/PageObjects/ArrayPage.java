@@ -1,18 +1,13 @@
 package PageObjects;
 
-
 import org.testng.Assert;
 
-import StepDefinitions.Hooks;
+import BaseTest.BaseTest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
-public class ArrayPage {
-
-	WebDriver driver=Hooks.getDriver();
-
+public class ArrayPage extends BaseTest{
 
 	By arrayDetail=By.cssSelector("h4.bg-secondary");
 	By topicsCovered = By.cssSelector("p.bg-secondary");
@@ -20,7 +15,7 @@ public class ArrayPage {
 	By arrayInPythonLink=By.cssSelector("a[href='arrays-in-python']");
 	By arraysInPythonText=By.cssSelector("strong .bg-secondary");
 
-	By arraysUsingListLink = By.cssSelector("a[href='arrays-using-list']");
+	By arraysUsingListLink = By.cssSelector("a[href='arrays-using-list']");	
 	By arraysUsingListText=By.cssSelector("strong .bg-secondary");
 	By basicOperationsInListLink = By.cssSelector("a[href=basic-operations-in-lists]");
 	By basicOperationsInListText=By.cssSelector("strong .bg-secondary");
@@ -30,10 +25,10 @@ public class ArrayPage {
 	By practiceQuestion1 = By.cssSelector("a[href='/question/1']");
 
 	public void validateUserIsOnArrayDetailPage(){
-		Assert.assertEquals(driver.findElement(arrayDetail).getText(), "Array");
+		Assert.assertEquals(driver.findElement(arrayDetail).getText(), "Array"); 
 		Assert.assertTrue(driver.findElement(arrayDetail).isDisplayed());
 		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/array/");
-		Assert.assertEquals(driver.findElement(topicsCovered).getText(),"Topics Covered");
+		Assert.assertEquals(driver.findElement(topicsCovered).getText(),"Topics Covered");	
 		Assert.assertTrue(driver.findElement(topicsCovered).isDisplayed());
 		Assert.assertTrue(driver.findElement(TopicsCoveredOptions).isDisplayed());
 	}
@@ -53,23 +48,23 @@ public class ArrayPage {
 	public void clickOnApplicationOfArrayLink() {
 		driver.findElement(applicationsOfArrayLink).click();
 	}
-
+	
 	public void validateUserIsOnArraysInPython() {
-		Assert.assertEquals(driver.findElement(arraysInPythonText).getText(),"Arrays in Python");
+		Assert.assertEquals(driver.findElement(arraysInPythonText).getText(),"Arrays in Python");	
 	}
 
-	public void validateUserIsOnArraysUsingList(){
+	public void validateUserIsOnArraysUsingList(){	
 		Assert.assertEquals(driver.findElement(arraysUsingListText).getText(),"Arrays Using List");
-	}
+	}	
 
-	public void validateUserIsOnBasicOperationsInList() {
+	public void validateUserIsOnBasicOperationsInList() {	
 		Assert.assertEquals(driver.findElement(basicOperationsInListText).getText(),"Basic Operations in Lists");
-	}
+	}	
 
-	public void validateUserIsOnApplicationsOfArray() {
+	public void validateUserIsOnApplicationsOfArray() {	
 		Assert.assertEquals(driver.findElement(applicationsOfArrayText).getText(),"Applications of Array");
 	}
-
+	
 	public void clickOnPracticeQuestionsLink() {
 		driver.findElement(practiceQuestionsLink).click();
 	}
