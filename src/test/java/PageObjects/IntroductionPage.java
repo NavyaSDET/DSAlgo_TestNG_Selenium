@@ -94,6 +94,10 @@ public class IntroductionPage extends BaseTest{
 	public void clickOnGetStartedButtonOfDSIntroduction() {
 		driver.findElements(getStartedButtonOnCard).get(0).click();			
 	}
+	
+	public void ValidateLoginSuccessFull() {
+		Assert.assertTrue(driver.findElement(displayQaChamps).isDisplayed());
+	}
 
 	public void validateUserisOnDSIntroduction() {
 		Assert.assertTrue(driver.findElement(dataStructurePageHeader).isDisplayed());

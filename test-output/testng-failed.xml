@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="methods" name="Test(failed)">
+    <classes>
+      <class name="Tests.LoginTestNav">
+        <methods>
+          <include name="tearDown"/>
+          <include name="DS_Algo_Sign_in_Page_with_invalid_username_and_password"/>
+          <include name="DS_Algo_Sign_in_Page__with_blank_username"/>
+          <include name="clearCookies"/>
+          <include name="DS_Algo_Sign_in_Page_with_valid_username_and_invalid_password"/>
+          <include name="setUp"/>
+          <include name="loginIntoApp"/>
+          <include name="DS_Algo_Sign_in_Page_with_blank_info"/>
+          <include name="DS_Algo_Sign_in_Page_with_blank_password"/>
+          <include name="DS_Algo_Sign_in_Page__with_valid_username_and_Valid_password"/>
+        </methods>
+      </class> <!-- Tests.LoginTestNav -->
+      <class name="Tests.ArrayDetailsPage">
+        <methods>
+          <include name="loginIntoApp"/>
+          <include name="tearDown"/>
+          <include name="validate_user_navigated_to_array_details_page_when_clicked_on_get_started"/>
+          <include name="clearCookies"/>
+          <include name="Valid_code_on_try_editor_for_Array_using_list_runs_successfully"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_Basic_operations_in_lists"/>
+          <include name="Validate_user_can_Try_here_link_page_from_Basic_operations_in_lists"/>
+          <include name="Validate_user_can_navigate_to_basic_opertaions_in_lists"/>
+          <include name="validate_user_can_try_here_link_page_from_arrays_in_python"/>
+          <include name="Validate_user_can_navigate_to_applications_of_array"/>
+          <include name="validate_user_can_navigate_to_Arrays_in_python"/>
+          <include name="validate_user_can_click_on_practicequestions"/>
+          <include name="setUp"/>
+          <include name="Valid_code_on_try_editor_for_applications_of_array_runs_successfully"/>
+          <include name="Valid_code_on_try_editor_for_arrays_in_python_runs_successfully"/>
+          <include name="Valid_code_on_try_editor_for_basic_operations_in_lists_runs_successfully"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_applications_of_array"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_array_in_python"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_basic_operations_in_lists"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Array_using_list"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_Queue_operations"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_applications_of_array"/>
+        </methods>
+      </class> <!-- Tests.ArrayDetailsPage -->
+      <class name="Tests.StackPageTests">
+        <methods>
+          <include name="tearDown"/>
+          <include name="Validate_user_can_Try_here_link_page_from_Operations_in_Stack"/>
+          <include name="clearCookies"/>
+          <include name="Validate_user_navigated_to_stack_details_page_when_clicked_on_get_started"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_Operations_in_Stack_page"/>
+          <include name="Valid_code_on_try_editor_for_Operations_in_Stack_runs_successfully"/>
+          <include name="loginIntoApp"/>
+          <include name="Validate_user_can_navigate_to_Operations_in_Stack_page"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Operations_in_Stack_page"/>
+          <include name="Valid_code_on_try_editor_for_Applications_runs_successfully"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_Applications_page"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Applications_page"/>
+          <include name="Validate_user_can_click_on_Try_here_link_from_Implementation_page"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Implementation_page"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_Implementation_page"/>
+          <include name="Validate_user_can_click_on_Try_here_link_from_Applications_page"/>
+          <include name="setUp"/>
+          <include name="Validate_user_can_navigate_to_Implementation_page"/>
+          <include name="Valid_code_on_try_editor_for_Implementation_runs_successfully"/>
+          <include name="Validate_user_can_navigate_to_Applications_page"/>
+        </methods>
+      </class> <!-- Tests.StackPageTests -->
+      <class name="Tests.DSIntorductionPage">
+        <methods>
+          <include name="Clicking_on_Try_Here_on_time_complexity_opens_python_editor"/>
+          <include name="clicking_on_get_started_for_data_structers_lands_on_Data_Structers_details_page"/>
+          <include name="tearDown"/>
+          <include name="Valid_code_on_try_editor_for_Time_Complexity_runs_successfully"/>
+          <include name="clicking_on_time_complexity_navigate_to_the_page"/>
+          <include name="setUp"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_editor_for_Time_Complexity"/>
+          <include name="loginIntoApp"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Time_Complexity"/>
+          <include name="clearCookies"/>
+        </methods>
+      </class> <!-- Tests.DSIntorductionPage -->
+      <class name="Tests.HomePageTests">
+        <methods>
+          <include name="tearDown"/>
+          <include name="loginIntoApp"/>
+          <include name="clearCookies"/>
+          <include name="setUp"/>
+          <include name="validate_user_lands_on_register_page_when_clicked_on_register"/>
+          <include name="Validate_user_lands_on_default_home_page"/>
+          <include name="verify_warning_message_when_user_navigate_to_DS_details_page_without_signIn"/>
+          <include name="validate_the_DS_dropdown_without_signIN"/>
+          <include name="Validate_user_navigate_to_DS_Intro_Page"/>
+        </methods>
+      </class> <!-- Tests.HomePageTests -->
+      <class name="Tests.QueueDetails">
+        <methods>
+          <include name="tearDown"/>
+          <include name="Valid_code_on_try_editor_for_Implementation_using_collections_deque_runs_successfully"/>
+          <include name="Valid_code_on_try_editor_for_implementation_using_array_runs_successfully"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_queue_operations"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_implementation_using_array"/>
+          <include name="Validate_user_can_open_try_editor_page_from_Implementation_of_Queue_in_python"/>
+          <include name="Valid_code_on_try_editor_for_Implementation_of_Queue_in_python_runs_successfully"/>
+          <include name="Validate_user_navigated_to_queue_details_page_when_clicked_on_get_started"/>
+          <include name="Valid_code_on_try_editor_for_queue_operations_runs_successfully"/>
+          <include name="clearCookies"/>
+          <include name="loginIntoApp"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Implementation_using_collections_deque"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_editor_for_implementation_using_array"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_editor_for_queue_operations"/>
+          <include name="Validate_user_can_open_try_editor_page_from_implementation_using_array"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_editor_for_Implementation_of_Queue_in_python"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_Implementation_of_Queue_in_python"/>
+          <include name="Validate_user_can_open_try_editor_page_from_queue_operations"/>
+          <include name="setUp"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_editor_for_Implementation_using_collections_deque"/>
+          <include name="Validate_user_can_navigate_to_implementation_using_array"/>
+          <include name="Validate_user_can_navigate_to_Implementation_using_collections_deque"/>
+          <include name="Validate_user_can_navigate_to_Implementations_of_Queue_in_Python"/>
+          <include name="Validate_user_can_open_try_editor_page_from_Implementation_using_collections_deque"/>
+          <include name="Validate_user_can_navigate_to_queue_operations_page"/>
+        </methods>
+      </class> <!-- Tests.QueueDetails -->
+      <class name="Tests.GraphHomePage">
+        <methods>
+          <include name="tearDown"/>
+          <include name="Valid_code_on_try_editor_for_graphs_runs_successfully"/>
+          <include name="Validate_user_can_navigate_to_Graph_Representations_page"/>
+          <include name="Valid_code_on_try_editor_for_graph_representations_runs_successfully"/>
+          <include name="Validate_user_can_Try_here_link_page_from_graphs"/>
+          <include name="Validate_user_can_click_on_Try_here_link_from_graph_representations_page"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_graph_representations_page"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_graph_representations_page"/>
+          <include name="loginIntoApp"/>
+          <include name="setUp"/>
+          <include name="clearCookies"/>
+          <include name="Validate_user_navigated_to_graph_details_page_when_clicked_on_get_started"/>
+          <include name="Validate_user_can_navigate_to_Graph_in_Graph_page"/>
+          <include name="No_error_message_displayed_for_empty_code_on_try_editor_for_graphs_page"/>
+          <include name="Error_message_displayed_for_invalid_code_on_try_Editor_for_graphs_page"/>
+        </methods>
+      </class> <!-- Tests.GraphHomePage -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

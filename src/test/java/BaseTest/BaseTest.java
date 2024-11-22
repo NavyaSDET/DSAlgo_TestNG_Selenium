@@ -1,17 +1,14 @@
 package BaseTest;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
-import Utilities.ConfigReader;
 import java.time.Duration;
 
 public class BaseTest {
@@ -20,7 +17,7 @@ public class BaseTest {
     private static String browser;
     public static WebDriver driver;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
         browser = "chrome";  // Or dynamically get browser type from config
 
@@ -41,7 +38,7 @@ public class BaseTest {
         threadDriver.set(driver);
     }
 
-    @After
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         WebDriver driver = threadDriver.get();
         if (driver != null) {

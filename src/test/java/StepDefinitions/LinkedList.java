@@ -1,7 +1,8 @@
 package StepDefinitions;
-import org.openqa.selenium.WebDriver;
+
 import org.testng.Assert;
 
+import BaseTest.BaseTest;
 import PageObjects.LinkedListPage;
 import PageObjects.RegistrationPage;
 import PageObjects.TreePage;
@@ -9,20 +10,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LinkedList {
+public class LinkedList extends BaseTest {
 
-	public WebDriver driver = Hooks.driver;
-	public LinkedListPage LLPage = new LinkedListPage(driver);
+	public LinkedListPage LLPage = new LinkedListPage();
 	public RegistrationPage RGPage;
-	TreePage treePage= new TreePage(driver);
-
-
+	TreePage treePage= new TreePage();
 
 	@Given("User clicks on Get Started button from Linked List panel")
 	public void user_clicks_on_get_started_button_from_linked_list_panel() {
 		//treePage = new TreePage(driver);
-		RGPage = new RegistrationPage(driver);
-		LLPage = new LinkedListPage(driver);
+		RGPage = new RegistrationPage();
+		LLPage = new LinkedListPage();
 	   LLPage.click_LL_GetStartedBtn_HomePage();
 	}
 

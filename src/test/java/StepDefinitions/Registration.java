@@ -15,8 +15,7 @@ import io.cucumber.java.en.When;
 
 public class Registration {
 
-	public WebDriver driver = Hooks.driver;
-	RegistrationPage RGPage= new RegistrationPage(driver); //constructor used
+	RegistrationPage RGPage= new RegistrationPage(); //constructor used
 	//ExcelReader excelReader = new ExcelReader("C:/Users/rakes/git/Repo1/src/test/resources/Excel/TestData.xlsx");
 
 	String actualErrorMsg;
