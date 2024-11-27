@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="Tests.TreeTestCases">
+        <methods>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_OverviewOfTrees"/>
+          <include name="LL_TC_validate_clickOn_Terminologies"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_ImplementationInPython"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_ApplicationOfBinaryTrees"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_BinaryTrees"/>
+          <include name="LL_TC_validate_IfOn_LL_HomePage"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_TreeTraversals"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_ImplementationOfBinaryTrees_runs_successfully"/>
+          <include name="LL_TC_validate_clickOn_TypesOfBinaryTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_TreeTraversals"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_Terminologies"/>
+          <include name="LL_GoToTreeHomePage"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_TreeTraversals"/>
+          <include name="LL_TC_validate_clickOn_OverviewOfTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_OverviewOfTrees"/>
+          <include name="LL_TC_validate_clickOn_BinarySearchTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_TypesOfTrees"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_TypesOfBinaryTrees_runs_successfully"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_BinarySearchTrees"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_OverviewOfTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_ImplementationOfBinaryTrees"/>
+          <include name="LL_TC_validate_clickOn_Traversals_Illustration"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_BinaryTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_TypesOfBinaryTrees"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_OverviewOfTrees_runs_successfully"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_TypesOfTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_BinaryTrees"/>
+          <include name="LL_TC_validate_clickOn_ApplicationOfBinaryTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_ImplementationInPython"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_TypesOfTrees"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_ImplementationOfBinaryTrees"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_Terminologies_runs_successfully"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_TreeTraversals_runs_successfully"/>
+          <include name="LL_TC_validate_clickOn_ImplementationOfBinaryTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_ImplementationOfBST"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_TypesOfBinaryTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_Terminologies"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_ApplicationOfBinaryTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_Traversals_Illustration"/>
+          <include name="LL_TC_validate_clickOn_BinaryTrees"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_Traversals_Illustration_runs_successfully"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_BinarySearchTrees"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_ImplementationOfBST"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_BinarySearchTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_BinaryTreeTraversal"/>
+          <include name="LL_TC_validate_clickOn_BinaryTreeTraversal"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_ApplicationOfBinaryTrees_runs_successfully"/>
+          <include name="LL_TC_validate_clickOn_ImplementationInPython"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_Terminologies"/>
+          <include name="LL_TC_validate_ImplementationOfBST"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_BinaryTreeTraversal"/>
+          <include name="LL_TC_validate_Clicking_Tree_from_Dropdown"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_Traversals_Illustration"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_Operations_for_BinaryTreeTraversal"/>
+          <include name="LL_TC_validate_clickOn_TypesOfTrees"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_ApplicationOfBinaryTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_ImplementationInPython"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_Traversals_Illustration"/>
+          <include name="clearCookies"/>
+          <include name="LL_TC_validate_clickOn_TreeTraversals"/>
+          <include name="LL_TC_validate_TRY_HERE_BUTTON_from_TypesOfBinaryTrees"/>
+          <include name="validate_Error_message_displayed_for_INVALID_CODE_on_try_Editor_for_ImplementationOfBST"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_BinaryTrees_runs_successfully"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_ImplementationInPython_runs_successfully"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_BinaryTreeTraversal_runs_successfully"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_BinarySearchTrees_runs_successfully"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_TypesOfTrees_runs_successfully"/>
+          <include name="validate_No_error_message_displayed_for_EMPTY_CODE_on_try_editor_for_ImplementationOfBinaryTrees"/>
+          <include name="validate_VALID_CODE_on_try_editor_for_ImplementationOfBST_runs_successfully"/>
+        </methods>
+      </class> <!-- Tests.TreeTestCases -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

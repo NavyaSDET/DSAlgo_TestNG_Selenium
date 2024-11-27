@@ -9,7 +9,7 @@ import PageObjects.LoginPage;
 import PageObjects.HomePage;
 import PageObjects.IntroductionPage;
 
-public class LoginTestNav extends BaseTest{
+public class LoginTestNav{
 
 	public HomePage hp = new HomePage();
 	public LoginPage login = new LoginPage();
