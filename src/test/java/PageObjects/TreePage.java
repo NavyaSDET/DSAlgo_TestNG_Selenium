@@ -69,6 +69,11 @@ public class TreePage extends BaseTest{
 
 	/////////////////////////////////////////////////////////////////////// GENERAL ELEMENT METHODS
 
+	public void click_GetStartedBtn_for_Tree_from_HomePage()
+	{
+		driver.findElement(Tree_GetStartedBtn_HomePage).click();
+	}
+	
 	public void clickTree_GetStartedBtn_HomePage()
 	{
 		driver.findElement(Tree_GetStartedBtn_HomePage).click();
