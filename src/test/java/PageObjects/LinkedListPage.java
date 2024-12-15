@@ -1,7 +1,6 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import BaseTest.BaseTest;
 
@@ -35,50 +34,50 @@ public class LinkedListPage extends BaseTest {
 
 	public void click_LL_GetStartedBtn_HomePage()
 	{
-		driver.findElement(LL_GetStartedBtn_HomePage).click();
+		getDriver().findElement(LL_GetStartedBtn_HomePage).click();
 	}
 
 	public void click_LL_IntroductionPage()
 	{
-		driver.findElement(Introduction).click();
+		getDriver().findElement(Introduction).click();
 	}
 
 	public void click_LinkedList_FromDropDown()
 	{
 
-		driver.findElement(Tree_FromDropDown).click();
+		getDriver().findElement(Tree_FromDropDown).click();
 	}
 
 	// PAGE MODULES ELEMENTS METHODS
 
 	public void click_LL_Creating_LinkedList()
 	{
-		driver.findElement(CreatingLinkedList).click();
+		getDriver().findElement(CreatingLinkedList).click();
 	}
 
 	public void click_LL_Types_Of_LinkedList()
 	{
-		driver.findElement(TypesOfLinkedList).click();
+		getDriver().findElement(TypesOfLinkedList).click();
 	}
 
 	public void click_LL_Implement_Linked_List_In_Python()
 	{
-		driver.findElement(ImplementLinkedListInPython).click();
+		getDriver().findElement(ImplementLinkedListInPython).click();
 	}
 
 	public void click_LL_Traversal()
 	{
-		driver.findElement(Traversal).click();
+		getDriver().findElement(Traversal).click();
 	}
 
 	public void click_LL_Insertion()
 	{
-		driver.findElement(Insertion).click();
+		getDriver().findElement(Insertion).click();
 	}
 
 	public void click_LL_Deletion()
 	{
-		driver.findElement(Deletion).click();
+		getDriver().findElement(Deletion).click();
 	}
 
 
@@ -86,33 +85,33 @@ public class LinkedListPage extends BaseTest {
 
 	public void click_LL_Details_Creating_LinkedList()
 	{
-		driver.findElement(LL_Details_CreatingLinkedList).click();
+		getDriver().findElement(LL_Details_CreatingLinkedList).click();
 
 	}
 
 	public void click_LL_Details_Types_Of_LinkedList()
 	{
-		driver.findElement(LL_Details_TypesOfLinkedList).click();
+		getDriver().findElement(LL_Details_TypesOfLinkedList).click();
 	}
 
 	public void click_LL_Details_Implement_Linked_List_In_Python()
 	{
-		driver.findElement(LL_Details_ImplementLinkedListInPython).click();
+		getDriver().findElement(LL_Details_ImplementLinkedListInPython).click();
 	}
 
 	public void click_LL_Details_Traversal()
 	{
-		driver.findElement(LL_Details_Traversal).click();
+		getDriver().findElement(LL_Details_Traversal).click();
 	}
 
 	public void click_LL_Details_Insertion()
 	{
-		driver.findElement(LL_Details_Insertion).click();
+		getDriver().findElement(LL_Details_Insertion).click();
 	}
 
 	public void click_LL_Details_Deletion()
 	{
-		driver.findElement(LL_Details_Deletion).click();
+		getDriver().findElement(LL_Details_Deletion).click();
 	}
 
 

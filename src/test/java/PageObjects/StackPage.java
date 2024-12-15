@@ -5,7 +5,6 @@ import org.testng.Assert;
 import BaseTest.BaseTest;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class StackPage extends BaseTest{
 
@@ -25,41 +24,41 @@ public class StackPage extends BaseTest{
 	By practiceQuestionsLink=By.cssSelector("a[href='/graph/practice']");
 
 	public void validateUserIsOnStackDetailPage(){
-		Assert.assertEquals(driver.findElement(StackDetail).getText(), "Stack"); 
-		Assert.assertTrue(driver.findElement(StackDetail).isDisplayed());
-		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/stack/");
-		Assert.assertEquals(driver.findElement(topicsCovered).getText(),"Topics Covered");	
-		Assert.assertTrue(driver.findElement(topicsCovered).isDisplayed());
-		Assert.assertTrue(driver.findElement(TopicsCoveredOptions).isDisplayed());
+		Assert.assertEquals(getDriver().findElement(StackDetail).getText(), "Stack"); 
+		Assert.assertTrue(getDriver().findElement(StackDetail).isDisplayed());
+		Assert.assertEquals(getDriver().getCurrentUrl(),"https://dsportalapp.herokuapp.com/stack/");
+		Assert.assertEquals(getDriver().findElement(topicsCovered).getText(),"Topics Covered");	
+		Assert.assertTrue(getDriver().findElement(topicsCovered).isDisplayed());
+		Assert.assertTrue(getDriver().findElement(TopicsCoveredOptions).isDisplayed());
 	}
 
 	public void clickOnOperationsInStackLink() {
-		driver.findElement(operationsInStackLink).click();
+		getDriver().findElement(operationsInStackLink).click();
 	}
 
 	public void clickOnImplementationLink(){
-		driver.findElement(implementaionLink).click();
+		getDriver().findElement(implementaionLink).click();
 	}
 	
 	public void clickOnApplicationsLink() {
-		driver.findElement(ApplicationsLink).click();	
+		getDriver().findElement(ApplicationsLink).click();	
 	}
 
 	public void validateUserIsOnoperationsInStackText() {
-		Assert.assertEquals(driver.findElement(operationsInStackText).getText(),"Operations in Stack");	
+		Assert.assertEquals(getDriver().findElement(operationsInStackText).getText(),"Operations in Stack");	
 	}
 
 	public void validateUserIsOnimplementaionText () {	
-		Assert.assertEquals(driver.findElement( implementaionText).getText(),"Implementation");
+		Assert.assertEquals(getDriver().findElement( implementaionText).getText(),"Implementation");
 	}	
 
 	public void validateUserIsOnApplicationsText() {
-		Assert.assertEquals(driver.findElement(ApplicationsText).getText(),"Applications");	
+		Assert.assertEquals(getDriver().findElement(ApplicationsText).getText(),"Applications");	
 	}
 	
 	public void validateUserIsOnPracticeQuestionsPage() {
-		Assert.assertEquals(driver.getCurrentUrl() ,"https://dsportalapp.herokuapp.com/Stack/practice");
-		//Assert.assertTrue(driver.findElement(practiceQuestion1).isDisplayed());
+		Assert.assertEquals(getDriver().getCurrentUrl() ,"https://dsportalapp.herokuapp.com/Stack/practice");
+		//Assert.assertTrue(getDriver().findElement(practiceQuestion1).isDisplayed());
 	}
 
 }

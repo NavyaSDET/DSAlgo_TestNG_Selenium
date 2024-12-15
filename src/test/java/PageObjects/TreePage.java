@@ -2,7 +2,6 @@ package PageObjects;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import BaseTest.BaseTest;
@@ -71,293 +70,293 @@ public class TreePage extends BaseTest{
 
 	public void clickTree_GetStartedBtn_HomePage()
 	{
-		driver.findElement(Tree_GetStartedBtn_HomePage).click();
+		getDriver().findElement(Tree_GetStartedBtn_HomePage).click();
 	}
 
 	public void clickDataStructures_DropDownBtn()
 	{
-		driver.findElement(DataStructures_DropDownBtn).click();
+		getDriver().findElement(DataStructures_DropDownBtn).click();
 
 	}
 
 	public void click_TryHereBtn_TreePage()
 	{
 
-		driver.findElement(TryHereBtn_TreePage).click();
+		getDriver().findElement(TryHereBtn_TreePage).click();
 	}
 
 	/////////////////////////////////////////////////////////////////////// DROPDOWN ELEMENT METHODS
 
 	public void click_Tree_FromDropDown()
 	{
-		driver.findElement(Tree_FromDropDown).click();
+		getDriver().findElement(Tree_FromDropDown).click();
 	}
 
 	public void click_Stack_FromDropDown()
 	{
-		driver.findElement(Stack_FromDropDown).click();
+		getDriver().findElement(Stack_FromDropDown).click();
 	}
 
 	public void click_Array_FromDropDown()
 	{
-		driver.findElement(Array_FromDropDown).click();
+		getDriver().findElement(Array_FromDropDown).click();
 	}
 
 	public void click_Linked_List_FromDropDown()
 	{
-		driver.findElement(Linked_List_FromDropDown).click();
+		getDriver().findElement(Linked_List_FromDropDown).click();
 	}
 
 	public void click_Graph_FromDropDown()
 	{
-		driver.findElement(Graph_FromDropDown).click();
+		getDriver().findElement(Graph_FromDropDown).click();
 	}
 
 	public void clickQueue_FromDropDown()
 	{
-		driver.findElement(Queue_FromDropDown).click();
+		getDriver().findElement(Queue_FromDropDown).click();
 	}
 
 	//////////////////////////////////////////////////////////////////// PAGE MODULES ELEMENTS METHODS
 
 	public void clickOverviewOfTrees()
 	{
-		driver.findElement(OverviewOfTrees).click();
+		getDriver().findElement(OverviewOfTrees).click();
 	}
 
 	public void clickTerminologies()
 	{
-		driver.findElement(Terminologies).click();
+		getDriver().findElement(Terminologies).click();
 	}
 
 	public void clickTypesOfTrees()
 	{
-		driver.findElement(TypesOfTrees).click();
+		getDriver().findElement(TypesOfTrees).click();
 	}
 
 	public void clickTreeTraversals()
 	{
-		driver.findElement(TreeTraversals).click();
+		getDriver().findElement(TreeTraversals).click();
 	}
 
 	public void clickTraversals_Illustration()
 	{
-		driver.findElement(Trvaersals_Illustration).click();
+		getDriver().findElement(Trvaersals_Illustration).click();
 	}
 
 	public void clickBinaryTrees()
 	{
-		driver.findElement(BinaryTrees).click();
+		getDriver().findElement(BinaryTrees).click();
 	}
 
 	public void clickTypesOfBinaryTrees()
 	{
-		driver.findElement(TypesOfBinaryTrees).click();
+		getDriver().findElement(TypesOfBinaryTrees).click();
 	}
 
 	public void clickImplementationInPython()
 	{
-		driver.findElement(ImplementationInPython).click();
+		getDriver().findElement(ImplementationInPython).click();
 	}
 
 	public void clickBinaryTreeTraversals()
 	{
-		driver.findElement(BinaryTreeTraversals).click();
+		getDriver().findElement(BinaryTreeTraversals).click();
 	}
 
 	public void clickImplementationOfBinaryTrees()
 	{
-		driver.findElement(ImplementationOfBinaryTrees).click();
+		getDriver().findElement(ImplementationOfBinaryTrees).click();
 	}
 
 	public void clickApplicationsOfBinaryTrees()
 	{
-		driver.findElement(ApplicationsOfBinaryTrees).click();
+		getDriver().findElement(ApplicationsOfBinaryTrees).click();
 	}
 
 	public void clickBinarySearchTrees()
 	{
-		driver.findElement(BinarySearchTrees).click();
+		getDriver().findElement(BinarySearchTrees).click();
 	}
 
 	public void clickImplementationOfBST()
 	{
-		driver.findElement(ImplementationOfBST).click();
+		getDriver().findElement(ImplementationOfBST).click();
 	}
 
 	//////////////////////////////////////////////////////////////////// Tree Details Page module elements-click events
 
 	public void click_TreeDetails_OverviewOfTrees()
 	{
-		driver.findElement(treeDetails_OverviewOfTrees).click();
+		getDriver().findElement(treeDetails_OverviewOfTrees).click();
 	}
 
 	public void click_TreeDetails_Terminologies()
 	{
-		driver.findElement(treeDetails_Terminologies).click();
+		getDriver().findElement(treeDetails_Terminologies).click();
 	}
 
 	public void click_TreeDetails_TypesOfTrees()
 	{
-		driver.findElement(treeDetails_TypesOfTrees).click();
+		getDriver().findElement(treeDetails_TypesOfTrees).click();
 	}
 
 	public void click_TreeDetails_TreeTraversals()
 	{
-		driver.findElement(treeDetails_TreeTraversals).click();
+		getDriver().findElement(treeDetails_TreeTraversals).click();
 	}
 
 	public void click_TreeDetails_Traversals_Illustration()
 	{
-		driver.findElement(treeDetails_Traversals_Illustration).click();
+		getDriver().findElement(treeDetails_Traversals_Illustration).click();
 
 	}
 
 	public void click_TreeDetails_BinaryTrees()
 	{
-		driver.findElement(treeDetails_BinaryTrees).click();
+		getDriver().findElement(treeDetails_BinaryTrees).click();
 	}
 
 	public void click_TreeDetails_TypesOfBinaryTrees()
 	{
-		driver.findElement(treeDetails_TypesOfBinaryTrees).click();
+		getDriver().findElement(treeDetails_TypesOfBinaryTrees).click();
 	}
 
 	public void click_TreeDetails_ImplementationInPython()
 	{
-		driver.findElement(treeDetails_ImplementationInPython).click();
+		getDriver().findElement(treeDetails_ImplementationInPython).click();
 	}
 
 	public void click_TreeDetails_BinaryTreeTraversals()
 	{
-		driver.findElement(treeDetails_BinaryTreeTraversals).click();
+		getDriver().findElement(treeDetails_BinaryTreeTraversals).click();
 	}
 
 	public void click_TreeDetails_ImplementationOfBinaryTrees()
 	{
-		driver.findElement(treeDetails_ImplementationOfBinaryTrees).click();
+		getDriver().findElement(treeDetails_ImplementationOfBinaryTrees).click();
 	}
 
 	public void click_TreeDetails_ApplicationsOfBinaryTrees()
 	{
-		driver.findElement(treeDetails_ApplicationsOfBinaryTrees).click();
+		getDriver().findElement(treeDetails_ApplicationsOfBinaryTrees).click();
 	}
 
 	public void click_TreeDetails_BinarySearchTrees()
 	{
-		driver.findElement(treeDetails_BinarySearchTrees).click();
+		getDriver().findElement(treeDetails_BinarySearchTrees).click();
 	}
 
 	public void click_TreeDetails_ImplementationOfBST()
 	{
-		driver.findElement(treeDetails_ImplementationOfBST).click();
+		getDriver().findElement(treeDetails_ImplementationOfBST).click();
 	}
 
 	public void click_TreeDetails_PracticeQuestionsLink()
 	{
-		driver.findElement(treeDetails_PracticeQuestions).click();
+		getDriver().findElement(treeDetails_PracticeQuestions).click();
 	}
 
 	////////////////////////////////////////////////////////////////////// 'Check if on expected Page' METHODS
 
 	public void checkIfOn_TreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Tree");
+		Assert.assertEquals(getDriver().getTitle(),"Tree");
 	}
 
 	public void checkIfOn_OverviewOfTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Overview of Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Overview of Trees");
 	}
 
 	public void checkIfOn_TerminologiesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Terminologies");
+		Assert.assertEquals(getDriver().getTitle(),"Terminologies");
 	}
 
 	public void checkIfOn_Traversals_IllustrationPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Traversals-Illustration");
+		Assert.assertEquals(getDriver().getTitle(),"Traversals-Illustration");
 
 	}
 
 	public void checkIfOn_TypesOfTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Types of Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Types of Trees");
 
 	}
 
 	public void checkIfOn_TreeTraversals()
 	{
-		Assert.assertEquals(driver.getTitle(),"Tree Traversals");
+		Assert.assertEquals(getDriver().getTitle(),"Tree Traversals");
 	}
 
 	public void checkIfOn_BinaryTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Binary Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Binary Trees");
 	}
 
 	public void checkIfOn_TypesOfBinaryTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Types of Binary Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Types of Binary Trees");
 	}
 
 	public void checkIfOn_TreeDetails_TypesOfBinaryTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Types of Binary Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Types of Binary Trees");
 	}
 
 	public void checkIfOn_ImplementationInPythonPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Implementation in Python");
+		Assert.assertEquals(getDriver().getTitle(),"Implementation in Python");
 	}
 
 	public void checkIfOn_BinaryTreeTraversalsPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Binary Tree Traversals");
+		Assert.assertEquals(getDriver().getTitle(),"Binary Tree Traversals");
 	}
 
 	public void checkIfOn_ImplementationOfBinaryTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Implementation of Binary Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Implementation of Binary Trees");
 	}
 
 	public void checkIfOn_ApplicationsOfBinaryTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Applications of Binary trees");
+		Assert.assertEquals(getDriver().getTitle(),"Applications of Binary trees");
 	}
 
 	public void checkIfOn_BinarySearchTreesPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Binary Search Trees");
+		Assert.assertEquals(getDriver().getTitle(),"Binary Search Trees");
 	}
 
 	public void checkIfOn_ImplementationOfBSTPage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Implementation Of BST");
+		Assert.assertEquals(getDriver().getTitle(),"Implementation Of BST");
 	}
 
 	public void checkIfOn_PracticePage()
 	{
-		Assert.assertEquals(driver.getTitle(),"Practice Questions");
+		Assert.assertEquals(getDriver().getTitle(),"Practice Questions");
 	}
 
 	///////////////////////////////////////////////////////////////////// TRY HERE EDITOR METHODS
 
 	public void checkIf_RunBtn_TryEditorPageIsDisplayed()
 	{
-		driver.findElement(runButton).isDisplayed();
+		getDriver().findElement(runButton).isDisplayed();
 	}
 
 	public void writeInTryEditorWindow(String code)
 	{
-		driver.findElement(codeInputField).sendKeys(code);
-		driver.findElement(runButton).click();
+		getDriver().findElement(codeInputField).sendKeys(code);
+		getDriver().findElement(runButton).click();
 	}
 
 	public void clickOnOKBtnFromEditorErrorAlert()
 	{
-		Alert alert = driver.switchTo().alert();
+		Alert alert = getDriver().switchTo().alert();
 		alert.accept();
 
 	}
@@ -365,30 +364,25 @@ public class TreePage extends BaseTest{
 
 
 	public void checkIfOn_TryHereEditorPage() {
-		Assert.assertEquals(driver.getTitle(),"Assessment");
-		driver.findElement(runButton).isDisplayed();
+		Assert.assertEquals(getDriver().getTitle(),"Assessment");
+		getDriver().findElement(runButton).isDisplayed();
 	}
 
 	public void check_When_EmptyCode_In_Editor()
 	{
-		Assert.assertFalse(driver.findElement(consoleOutput).isDisplayed()); //Geetha code line
-
-
+		Assert.assertFalse(getDriver().findElement(consoleOutput).isDisplayed()); //Geetha code line
 	}
 
 	public void check_When_ValidCode_In_Editor(String expectedOutputText)
 	{
-		Assert.assertEquals(driver.findElement(consoleOutput).getText(), expectedOutputText);
+		Assert.assertEquals(getDriver().findElement(consoleOutput).getText(), expectedOutputText);
 	}
 
 	public void check_When_InvalidCode_In_Editor(String expectedErrorHeader, String expectedErrorMessage)
 	{
-
-		Alert alert = driver.switchTo().alert();
+		Alert alert = getDriver().switchTo().alert();
 		String alertText = alert.getText();
 		Assert.assertEquals(alertText, expectedErrorMessage);
 	}
-
-
 
 }

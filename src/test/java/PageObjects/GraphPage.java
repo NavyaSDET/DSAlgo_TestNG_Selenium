@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class GraphPage extends BaseTest{
+	public WebDriver driver = getDriver();
 
 	By GraphDetail=By.cssSelector("h4.bg-secondary");
 	By topicsCovered = By.cssSelector("p.bg-secondary");

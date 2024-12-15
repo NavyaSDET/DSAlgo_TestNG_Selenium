@@ -5,7 +5,6 @@ import org.testng.Assert;
 import BaseTest.BaseTest;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class ArrayPage extends BaseTest{
 
@@ -25,51 +24,51 @@ public class ArrayPage extends BaseTest{
 	By practiceQuestion1 = By.cssSelector("a[href='/question/1']");
 
 	public void validateUserIsOnArrayDetailPage(){
-		Assert.assertEquals(driver.findElement(arrayDetail).getText(), "Array"); 
-		Assert.assertTrue(driver.findElement(arrayDetail).isDisplayed());
-		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/array/");
-		Assert.assertEquals(driver.findElement(topicsCovered).getText(),"Topics Covered");	
-		Assert.assertTrue(driver.findElement(topicsCovered).isDisplayed());
-		Assert.assertTrue(driver.findElement(TopicsCoveredOptions).isDisplayed());
+		Assert.assertEquals(getDriver().findElement(arrayDetail).getText(), "Array"); 
+		Assert.assertTrue(getDriver().findElement(arrayDetail).isDisplayed());
+		Assert.assertEquals(getDriver().getCurrentUrl(),"https://dsportalapp.herokuapp.com/array/");
+		Assert.assertEquals(getDriver().findElement(topicsCovered).getText(),"Topics Covered");	
+		Assert.assertTrue(getDriver().findElement(topicsCovered).isDisplayed());
+		Assert.assertTrue(getDriver().findElement(TopicsCoveredOptions).isDisplayed());
 	}
 
 	public void clickOnArrayInPythonLink() {
-		driver.findElement(arrayInPythonLink).click();
+		getDriver().findElement(arrayInPythonLink).click();
 	}
 
 	public void clickOnArrayUsingListLink() {
-		driver.findElement(arraysUsingListLink).click();
+		getDriver().findElement(arraysUsingListLink).click();
 	}
 
 	public void clickOnBasicOperationsLink() {
-		driver.findElement(basicOperationsInListLink).click();
+		getDriver().findElement(basicOperationsInListLink).click();
 	}
 
 	public void clickOnApplicationOfArrayLink() {
-		driver.findElement(applicationsOfArrayLink).click();
+		getDriver().findElement(applicationsOfArrayLink).click();
 	}
 	
 	public void validateUserIsOnArraysInPython() {
-		Assert.assertEquals(driver.findElement(arraysInPythonText).getText(),"Arrays in Python");	
+		Assert.assertEquals(getDriver().findElement(arraysInPythonText).getText(),"Arrays in Python");	
 	}
 
 	public void validateUserIsOnArraysUsingList(){	
-		Assert.assertEquals(driver.findElement(arraysUsingListText).getText(),"Arrays Using List");
+		Assert.assertEquals(getDriver().findElement(arraysUsingListText).getText(),"Arrays Using List");
 	}	
 
 	public void validateUserIsOnBasicOperationsInList() {	
-		Assert.assertEquals(driver.findElement(basicOperationsInListText).getText(),"Basic Operations in Lists");
+		Assert.assertEquals(getDriver().findElement(basicOperationsInListText).getText(),"Basic Operations in Lists");
 	}	
 
 	public void validateUserIsOnApplicationsOfArray() {	
-		Assert.assertEquals(driver.findElement(applicationsOfArrayText).getText(),"Applications of Array");
+		Assert.assertEquals(getDriver().findElement(applicationsOfArrayText).getText(),"Applications of Array");
 	}
 	
 	public void clickOnPracticeQuestionsLink() {
-		driver.findElement(practiceQuestionsLink).click();
+		getDriver().findElement(practiceQuestionsLink).click();
 	}
 	public void validateUserIsOnPracticeQuestionsPage() {
-		Assert.assertEquals(driver.getCurrentUrl() ,"https://dsportalapp.herokuapp.com/array/practice");
-		Assert.assertTrue(driver.findElement(practiceQuestion1).isDisplayed());
+		Assert.assertEquals(getDriver().getCurrentUrl() ,"https://dsportalapp.herokuapp.com/array/practice");
+		Assert.assertTrue(getDriver().findElement(practiceQuestion1).isDisplayed());
 	}
 }

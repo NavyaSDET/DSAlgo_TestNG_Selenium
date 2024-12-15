@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -39,27 +38,23 @@ public class RegistrationPage extends BaseTest{
 
 	//3. Actions made on Web Elements
 	public void openDSAlgoURL()
-	{
-       // System.setProperty("webdriver.chrome.driver", "/Users/rakes/eclipse-workspace/Hello-Selenium/src/test/resources/driver/chromedriver-win64/chromedriver.exe");
-       // driver = new ChromeDriver();
-       // driver.manage().window().maximize();
-	  // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.get("https://dsportalapp.herokuapp.com/");
+	{      
+		getDriver().get("https://dsportalapp.herokuapp.com/");
 	}
 
 	public void clickGetStartedBtn()
 	{
-		driver.findElement(GetStartedButton).click();
+		getDriver().findElement(GetStartedButton).click();
 	}
 
 	public void clickRegisterBtn_GetStartedPage()
 	{
-		driver.findElement(RegisterButton_GetStartedPage).click();
+		getDriver().findElement(RegisterButton_GetStartedPage).click();
 	}
 
 	public void clickRegisterBtn_RegisterPage()
 	{
-		driver.findElement(RegisterButton_RegPage).click();
+		getDriver().findElement(RegisterButton_RegPage).click();
 	}
 
 
@@ -67,20 +62,20 @@ public class RegistrationPage extends BaseTest{
 	public void enterUsername(String username) throws IOException
 	{
 
-		driver.findElement(UsernameTextbox).sendKeys(username);
+		getDriver().findElement(UsernameTextbox).sendKeys(username);
 
 	}
 
 	public void enterPassword(String password)
 	{
 
-		driver.findElement(PasswordTextbox).sendKeys(password);
+		getDriver().findElement(PasswordTextbox).sendKeys(password);
 	}
 
 	public void enterPasswordConfirmation(String confirmPswd)
 	{
 
-		driver.findElement(ConfirmPasswordTextbox).sendKeys(confirmPswd);
+		getDriver().findElement(ConfirmPasswordTextbox).sendKeys(confirmPswd);
 	}
 
 	public void fillRegistrationForm(String sheetname, int row) throws InvalidFormatException, IOException, OpenXML4JException, InterruptedException {
@@ -124,41 +119,41 @@ public class RegistrationPage extends BaseTest{
 
 	public void clickSignInBtn()
 	{
-		driver.findElement(SignInBtn).click();
+		getDriver().findElement(SignInBtn).click();
 	}
 
 	public void clickLoginBtn()
 	{
-		driver.findElement(LoginBtn).click();
+		getDriver().findElement(LoginBtn).click();
 	}
 
 
 	public String showErrorMsg_PswdDoNotMatch()
 	{
-		return driver.findElement(Error_PswdDoNotMatch).getText();
+		return getDriver().findElement(Error_PswdDoNotMatch).getText();
 
 	}
 
 	public boolean checkIfRegisterSuccessMsgIsDisplayed()
 	{
-		 return driver.findElement(RegisterSuccessMsg).isDisplayed();
+		 return getDriver().findElement(RegisterSuccessMsg).isDisplayed();
 
 
 	}
 
 	public String successMsg()
 	{
-		return driver.findElement(RegisterSuccessMsg).getText();
+		return getDriver().findElement(RegisterSuccessMsg).getText();
 	}
 
 	public String activeElementBrowserValidation()   // Capture error - Please fill out this field
 	{
-		return driver.findElement(UsernameTextbox).getAttribute("validationMessage");
+		return getDriver().findElement(UsernameTextbox).getAttribute("validationMessage");
 	}
 
 	public void compareActualAndExpectedBrowserErrorMsg()   //'Please fill out this field' error message
 	{
-		WebElement activeElement = driver.switchTo().activeElement();  //'Please fill out this field' error message
+		WebElement activeElement = getDriver().switchTo().activeElement();  //'Please fill out this field' error message
 		String msgBrowserValidation = activeElement.getAttribute("validationMessage");
 		String expectedErrorMsg = "Please fill out this field.";
 		Assert.assertEquals(msgBrowserValidation, expectedErrorMsg);
@@ -167,12 +162,12 @@ public class RegistrationPage extends BaseTest{
 	public void checkRegistrationPageURL()
 	{
 
-		 Assert.assertEquals(driver.getTitle(),"NumpyNinja");
+		 Assert.assertEquals(getDriver().getTitle(),"NumpyNinja");
 	}
 
 	public void assertLoginPage()
 	{
-		 Assert.assertEquals(driver.getTitle(),"Login");
+		 Assert.assertEquals(getDriver().getTitle(),"Login");
 	}
 
 	public void Land_On_RegistrationPage()
@@ -187,17 +182,17 @@ public class RegistrationPage extends BaseTest{
 /////////////////////////////////////////////////////////////   Enter INVALID Credentials methods
 /*	public void enterUsername_hardcoded(String usrname)
 {
-driver.findElement(UsernameTextbox).sendKeys(usrname);
+getDriver().findElement(UsernameTextbox).sendKeys(usrname);
 }
 
 public void enterPassword_hardcoded(String pswd)
 {
-driver.findElement(PasswordTextbox).sendKeys(pswd);
+getDriver().findElement(PasswordTextbox).sendKeys(pswd);
 }
 
 public void enterConfirmPassword(String confirmPswd)
 {
-driver.findElement(ConfirmPasswordTextbox).sendKeys(confirmPswd);
+getDriver().findElement(ConfirmPasswordTextbox).sendKeys(confirmPswd);
 }
 
 public void enterUsernameAndPswdAndConfirmPswdAndClickRegisterBtn(String username, String password, String confirm_password)
@@ -220,7 +215,7 @@ System.out.println("Error Displayed!");
 
 public void validateToolTipErrorMsgRegistration(String errorMessage) {
 
-WebElement activeElement = driver.switchTo().activeElement();
+WebElement activeElement = getDriver().switchTo().activeElement();
 String messageStr = activeElement.getAttribute("validationMessage");
 //LoggerLoad.info("Actual message appeared on screen: " + messageStr);
 Assert.assertEquals(messageStr,errorMessage);

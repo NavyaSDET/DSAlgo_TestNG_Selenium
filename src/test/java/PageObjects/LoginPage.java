@@ -1,7 +1,6 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -15,33 +14,33 @@ public class LoginPage extends BaseTest{
 	By warningMessage = By.cssSelector(".alert.alert-primary");
 	
 	public void enterUsername(String username) {
-		driver.findElement(txt_username).sendKeys(username);
+		getDriver().findElement(txt_username).sendKeys(username);
 		
 	}
 	
     public void enterPassword(String password) {
-    	driver.findElement(txt_password).sendKeys(password);
+    	getDriver().findElement(txt_password).sendKeys(password);
     }
     
     public void clicklogin() {
-    	driver.findElement(btn_login).click();
+    	getDriver().findElement(btn_login).click();
     }
     
     public void loginValiduser(String username, String password) throws InterruptedException {
-    	driver.findElement(txt_username).sendKeys(username);
-    	driver.findElement(txt_password).sendKeys(password);
-    	driver.findElement(btn_login).click();
+    	getDriver().findElement(txt_username).sendKeys(username);
+    	getDriver().findElement(txt_password).sendKeys(password);
+    	getDriver().findElement(btn_login).click();
     }
     
     public void validateAlertMessage(String expectedAlertMessage) throws InterruptedException {
-    	WebElement activeElement = driver.switchTo().activeElement();
+    	WebElement activeElement = getDriver().switchTo().activeElement();
     	String messageStr = activeElement.getAttribute("validationMessage");
     	Assert.assertEquals(messageStr, expectedAlertMessage);
     	System.out.println("Actual message appeared on screen: " + messageStr);
     }
     
     public void validaterrormessage(String expectedWarningMessage) {
-    	Assert.assertEquals(driver.findElement(warningMessage).getText(),expectedWarningMessage);    	
+    	Assert.assertEquals(getDriver().findElement(warningMessage).getText(),expectedWarningMessage);    	
     }
     
 }
