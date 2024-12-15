@@ -1,30 +1,26 @@
 package Tests;
 
 import org.testng.annotations.Test;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
 import BaseTest.BaseTest;
 import PageObjects.ArrayPage;
 import PageObjects.HomePage;
 import PageObjects.IntroductionPage;
 
-public class DSIntorductionPage extends BaseTest{
+public class DSIntorductionPage extends BaseTest {
 	public HomePage hp = new HomePage();
 	public ArrayPage ap = new ArrayPage();
-	public IntroductionPage ip =  new IntroductionPage();
-	
+	public IntroductionPage ip = new IntroductionPage();
+
 	@Parameters("browser")
-    @BeforeClass
-    public void setUpTest(String browser) {
-        setUp(browser);
-    }
-	
+	@BeforeClass
+	public void setUpTest(String browser) {
+		setUp(browser);
+	}
 
 	@BeforeMethod(alwaysRun = true)
 	public void loginIntoApp() {
@@ -35,10 +31,10 @@ public class DSIntorductionPage extends BaseTest{
 	}
 
 	@AfterClass
-    public void tearDownTest() {
-        tearDown();
-    }
-	
+	public void tearDownTest() {
+		tearDown();
+	}
+
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void clicking_on_get_started_for_data_structers_lands_on_Data_Structers_details_page() {
 		ip.validateUserisOnDSIntroduction();
@@ -60,17 +56,18 @@ public class DSIntorductionPage extends BaseTest{
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Error_message_displayed_for_invalid_code_on_try_editor_for_Time_Complexity () {
+	public void Error_message_displayed_for_invalid_code_on_try_editor_for_Time_Complexity() {
 		ip.clickOnTimeComplexiButton();
 		ip.clickOnTryHerebutton();
 		ip.codeTryEditorPage();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says",
+				"NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor_for_Time_Complexity () {
+	public void No_error_message_displayed_for_empty_code_on_try_editor_for_Time_Complexity() {
 		ip.clickOnTimeComplexiButton();
 		ip.clickOnTryHerebutton();
 		ip.codeTryEditorPage();
@@ -79,7 +76,7 @@ public class DSIntorductionPage extends BaseTest{
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Valid_code_on_try_editor_for_Time_Complexity_runs_successfully () {
+	public void Valid_code_on_try_editor_for_Time_Complexity_runs_successfully() {
 		ip.clickOnTimeComplexiButton();
 		ip.clickOnTryHerebutton();
 		ip.codeTryEditorPage();

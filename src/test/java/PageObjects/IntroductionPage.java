@@ -5,9 +5,9 @@ import BaseTest.BaseTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
-public class IntroductionPage extends BaseTest{
+public class IntroductionPage extends BaseTest {
 
-	By NumpyNinja =  By.cssSelector("a[href='/home']");
+	By NumpyNinja = By.cssSelector("a[href='/home']");
 	By Datastructure = By.cssSelector("a.dropdown-toggle");
 	By DsDropdown = By.cssSelector("a.dropdown-item");
 
@@ -15,28 +15,28 @@ public class IntroductionPage extends BaseTest{
 	By cardTitle = By.cssSelector("h5.card-title");
 	By cardText = By.cssSelector("p.card-text");
 	By getStartedButtonOnCard = By.cssSelector("a.btn-primary");
-	By signInButton=By.cssSelector("a[href='/login']");
-	By registerButton=By.cssSelector("a[href='/register']");
+	By signInButton = By.cssSelector("a[href='/login']");
+	By registerButton = By.cssSelector("a[href='/register']");
 	By warningMessage = By.cssSelector(".alert.alert-primary");
-	By userNameInputfield=By.cssSelector("input[name='username']");
-	By passWordNameInputField=By.cssSelector("input[name='password']");
-	By loginButton=By.cssSelector("input[type='submit']");
-	By displayQaChamps=By.cssSelector(".navbar-nav ul a:nth-child(2)");
-	By dataStructurePageHeader=By.cssSelector("h4.bg-secondary");
-	By dispalyTimeComplexity=By.cssSelector("a[href='time-complexity']");
-	By timeComplexityPage=By.cssSelector("strong .bg-secondary.text-white");
-	By tryHereButton=By.cssSelector("a[href='/tryEditor']");
-	By codeEditorPage=By.cssSelector("pre.codeMirror-line");
+	By userNameInputfield = By.cssSelector("input[name='username']");
+	By passWordNameInputField = By.cssSelector("input[name='password']");
+	By loginButton = By.cssSelector("input[type='submit']");
+	By displayQaChamps = By.cssSelector(".navbar-nav ul a:nth-child(2)");
+	By dataStructurePageHeader = By.cssSelector("h4.bg-secondary");
+	By dispalyTimeComplexity = By.cssSelector("a[href='time-complexity']");
+	By timeComplexityPage = By.cssSelector("strong .bg-secondary.text-white");
+	By tryHereButton = By.cssSelector("a[href='/tryEditor']");
+	By codeEditorPage = By.cssSelector("pre.codeMirror-line");
 	By codeInputField = By.cssSelector(".CodeMirror textarea");
 	By consoleOutput = By.cssSelector("#output");
-	By runButton=By.cssSelector("button[type='button']");   
-	By arrayGetStartedBtn= By.cssSelector("a[href='array']");
-	By queueGetStartedBtn= By.cssSelector("a[href='queue']");
-	By stackGetStartedBtn= By.cssSelector("a[href='stack']");
-	By graphGetStartedBtn= By.cssSelector("a[href='graph']");
+	By runButton = By.cssSelector("button[type='button']");
+	By arrayGetStartedBtn = By.cssSelector("a[href='array']");
+	By queueGetStartedBtn = By.cssSelector("a[href='queue']");
+	By stackGetStartedBtn = By.cssSelector("a[href='stack']");
+	By graphGetStartedBtn = By.cssSelector("a[href='graph']");
 
 	public void validateUserIsOnIntroductionPage() {
-		Assert.assertEquals(getDriver().findElement(NumpyNinja).getText(), "NumpyNinja"); 
+		Assert.assertEquals(getDriver().findElement(NumpyNinja).getText(), "NumpyNinja");
 		Assert.assertTrue(getDriver().findElement(cardBody).isDisplayed());
 		Assert.assertTrue(getDriver().findElement(signInButton).isDisplayed());
 		Assert.assertTrue(getDriver().findElement(registerButton).isDisplayed());
@@ -68,11 +68,11 @@ public class IntroductionPage extends BaseTest{
 	}
 
 	public void clickOnRegisterlink() {
-		getDriver().findElement(registerButton).click();	
+		getDriver().findElement(registerButton).click();
 	}
-	
+
 	public void clickOnSignInlink() {
-		getDriver().findElement(signInButton).click();	
+		getDriver().findElement(signInButton).click();
 	}
 
 	public void validateUserNavigatedToRegisterPage() {
@@ -82,15 +82,15 @@ public class IntroductionPage extends BaseTest{
 	public void completeTheLOgin() {
 		getDriver().findElement(signInButton).click();
 		getDriver().findElement(userNameInputfield).sendKeys("qachamps3");
-		getDriver().findElement(passWordNameInputField).sendKeys("Ninjatest@123");	
+		getDriver().findElement(passWordNameInputField).sendKeys("Ninjatest@123");
 		getDriver().findElement(loginButton).click();
 		Assert.assertTrue(getDriver().findElement(displayQaChamps).isDisplayed());
 	}
 
 	public void clickOnGetStartedButtonOfDSIntroduction() {
-		getDriver().findElements(getStartedButtonOnCard).get(0).click();			
+		getDriver().findElements(getStartedButtonOnCard).get(0).click();
 	}
-	
+
 	public void ValidateLoginSuccessFull() {
 		Assert.assertTrue(getDriver().findElement(displayQaChamps).isDisplayed());
 	}
@@ -99,8 +99,10 @@ public class IntroductionPage extends BaseTest{
 		Assert.assertTrue(getDriver().findElement(dataStructurePageHeader).isDisplayed());
 		Assert.assertEquals(getDriver().findElement(dataStructurePageHeader).getText(), "Data Structures-Introduction");
 
-		Assert.assertEquals(getDriver().getCurrentUrl(), "https://dsportalapp.herokuapp.com/data-structures-introduction/");
-	}	
+		Assert.assertEquals(getDriver().getCurrentUrl(),
+				"https://dsportalapp.herokuapp.com/data-structures-introduction/");
+	}
+
 	public void validateTimeComplexiButtonDisplayed() {
 		Assert.assertTrue(getDriver().findElement(dispalyTimeComplexity).isDisplayed());
 	}
@@ -110,50 +112,51 @@ public class IntroductionPage extends BaseTest{
 	}
 
 	public void validateTimeComplexitypage() {
-		Assert.assertTrue(getDriver().findElement(timeComplexityPage).isDisplayed());   
+		Assert.assertTrue(getDriver().findElement(timeComplexityPage).isDisplayed());
 		Assert.assertEquals(getDriver().findElement(timeComplexityPage).getText(), "Time Complexity");
 	}
 
-	public void clickOnTryHerebutton () {
-		getDriver().findElement(tryHereButton).click();	  
+	public void clickOnTryHerebutton() {
+		getDriver().findElement(tryHereButton).click();
 
 	}
 
-	public void codeTryEditorPage()  {
+	public void codeTryEditorPage() {
 		Assert.assertTrue(getDriver().findElement(codeEditorPage).isDisplayed());
 		Assert.assertTrue(getDriver().findElement(runButton).isDisplayed());
 	}
 
-	public void enterCodeInEditor(String codeText  )  {
+	public void enterCodeInEditor(String codeText) {
 		getDriver().findElement(codeInputField).sendKeys(codeText);
 	}
 
 	public void clickOnRunButton() {
-		getDriver().findElement(runButton).click();  
+		getDriver().findElement(runButton).click();
 	}
+
 	public void validateErrorMessageDisplayedOnAlert(String expectedErrorHeader, String expectedErrorMessage) {
-		Alert alert= getDriver().switchTo().alert();
-		String alertText=alert.getText();
+		Alert alert = getDriver().switchTo().alert();
+		String alertText = alert.getText();
 		Assert.assertEquals(alertText, expectedErrorMessage);
 		alert.accept();
 	}
 
 	public void clickOnGetStartedButtonOfArray() {
-		getDriver().findElement(arrayGetStartedBtn).click();			
+		getDriver().findElement(arrayGetStartedBtn).click();
 	}
 
 	public void clickOnGetStartedButtonOfQueue() {
-		getDriver().findElement(queueGetStartedBtn).click();			
+		getDriver().findElement(queueGetStartedBtn).click();
 	}
 
 	public void clickOnGetStartedButtonOfStack() {
-		getDriver().findElement(stackGetStartedBtn).click();			
+		getDriver().findElement(stackGetStartedBtn).click();
 	}
-	
+
 	public void clickOnGetStartedButtonOfGraph() {
-		getDriver().findElement(graphGetStartedBtn).click();			
+		getDriver().findElement(graphGetStartedBtn).click();
 	}
-	
+
 	public void validateConsoleOutput(String expectedOuputText) {
 		Assert.assertEquals(getDriver().findElement(consoleOutput).getText(), expectedOuputText);
 	}
