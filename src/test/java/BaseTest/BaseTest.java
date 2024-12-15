@@ -41,7 +41,7 @@ public class BaseTest {
         threadDriver.set(driver);
     }
 
-    @After
+    @AfterTest
     public void tearDown() {
         WebDriver driver = threadDriver.get();
         if (driver != null) {
