@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.testng.annotations.Parameters;
+
 public class ConfigReader {
 
 	
@@ -54,15 +56,27 @@ public class ConfigReader {
 		}
 	}
 
+	@Parameters("browser")
 	public static void setBrowserType(String browser) {
+		System.out.println("Setting browser type" + browser);
 		browserType = browser;
+	}
+	
+	public static String getUrl() {
+		return properties.getProperty("url");
 	}
 
 	public static String getBrowserType() throws Throwable {
-		if (browserType != null)
+		if (browserType != null) {
+			System.out.println("Setting browser type1" + browserType);
+
 			return browserType;
-		else
-			throw new RuntimeException("browser not specified in the testng.xml");
+		}
+	
+		else {
+			System.out.println("Setting browser type2" + browserType);
+return properties.getProperty("browser");
+		}
 	}
 
 }

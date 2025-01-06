@@ -2,12 +2,23 @@ package PageObjects;
 
 import org.testng.Assert;
 
-import BaseTest.BaseTest;
+import DriverManager.DriverManager;
+import Utilities.ExcelReader;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
-public class ArrayPage extends BaseTest{
+public class ArrayPage {
+
+	public WebDriver driver = DriverManager.getDriver();
 
 	By arrayDetail=By.cssSelector("h4.bg-secondary");
 	By topicsCovered = By.cssSelector("p.bg-secondary");
@@ -23,6 +34,20 @@ public class ArrayPage extends BaseTest{
 	By applicationsOfArrayText=By.cssSelector("strong .bg-secondary");
 	By practiceQuestionsLink=By.cssSelector("a[href='/array/practice']");
 	By practiceQuestion1 = By.cssSelector("a[href='/question/1']");
+	
+	public By searchTheArrayQuestion = By.cssSelector("a[href='/question/1']");
+	public By maxConsecutiveOneQuestion = By.cssSelector("a[href='/question/2']");
+	public By evenNumberQuestion = By.cssSelector("a[href='/question/3']");
+	public By sortedArrayQuestion4 = By.cssSelector("a[href='/question/4']");
+
+	public By practiceQuestionpage = By.cssSelector("div.container");
+	public By practiceQuestionPageHeader = By.cssSelector(".question h2");
+	public By practiceQuestionFirstLine = By.cssSelector("#questionText p:nth-child(1)");
+	public By practiceQuestionInput = By.cssSelector(".code-area textarea[tabindex=\"0\"]");
+	public By practiceQuestionSearchPage = By.cssSelector("div.CodeMirror-scroll");
+	public By practiceQuestionRunButton = By.cssSelector("button[type='button']");
+	public By practiceQuestionSubmitButton = By.cssSelector("input[type='submit']");
+	public By practiceQuestionOutPut = By.cssSelector("#output");
 
 	public void validateUserIsOnArrayDetailPage(){
 		Assert.assertEquals(driver.findElement(arrayDetail).getText(), "Array"); 
@@ -65,11 +90,76 @@ public class ArrayPage extends BaseTest{
 		Assert.assertEquals(driver.findElement(applicationsOfArrayText).getText(),"Applications of Array");
 	}
 	
-	public void clickOnPracticeQuestionsLink() {
-		driver.findElement(practiceQuestionsLink).click();
-	}
 	public void validateUserIsOnPracticeQuestionsPage() {
 		Assert.assertEquals(driver.getCurrentUrl() ,"https://dsportalapp.herokuapp.com/array/practice");
 		Assert.assertTrue(driver.findElement(practiceQuestion1).isDisplayed());
 	}
+
+	public void the_user_should_be_presented_with_the_run_result(String sheetName, int rowNumber)
+			throws InterruptedException,
+			InvalidFormatException, IOException,
+			OpenXML4JException {
+		ExcelReader reader = new ExcelReader();
+
+		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
+
+		String expectedOutput = testdata.get(rowNumber).get("Result");
+		Assert.assertEquals(driver.findElement(practiceQuestionOutPut).getText(), expectedOutput);
+	}
+	
+	public void clickOnPracticeQuestionsLink() {
+		driver.findElement(practiceQuestionsLink).click();
+	}
+
+	public void clickOnSearchArrayQuestionLink() {
+		driver.findElement(searchTheArrayQuestion).click();
+	}
+
+	public void clickOnMaxConsecutiveQuestionLink() {
+		driver.findElement(maxConsecutiveOneQuestion).click();
+	}
+
+	public void clickOnEvenNumbersQuestionLink() {
+		driver.findElement(evenNumberQuestion).click();
+	}
+
+	public void clickOnSortedArrayQuestionLink() {
+		driver.findElement(sortedArrayQuestion4).click();
+	}
+
+	public void clickOnSubmitButton() throws InterruptedException {
+		driver.findElement(practiceQuestionSubmitButton).click();
+		Thread.sleep(1000);
+	}
+
+	public void clickOnRunButton() {
+		driver.findElement(practiceQuestionRunButton).click();
+	}
+
+	public void enterPythonCode(String sheetname, int rownumber) throws InvalidFormatException, IOException, OpenXML4JException {
+		ExcelReader reader = new ExcelReader();
+
+		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetname);
+
+		driver.findElement(practiceQuestionInput);
+		// Focus on the input field, select all text, and clear it
+		new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+
+		Actions actions = new Actions(driver);
+
+		String code = testdata.get(rownumber).get("pythonCode");
+		code = code.replaceAll("\t", "");
+		String[] splittedCode = code.split("\n");
+		for (int i =0; i<splittedCode.length; i++) {
+			if(splittedCode[i].equalsIgnoreCase("\\xc")) {
+				actions.sendKeys(Keys.BACK_SPACE);
+			}
+			else {
+				System.out.println(splittedCode[i]);
+				actions.sendKeys(splittedCode[i]).perform();
+				actions.sendKeys("\n").perform();
+			}
+		}
+	}
+
 }

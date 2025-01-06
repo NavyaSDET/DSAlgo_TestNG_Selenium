@@ -3,10 +3,10 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
+import DriverManager.DriverManager;
 
-import BaseTest.BaseTest;
-
-public class HomePage extends BaseTest{ 
+public class HomePage { 
+	public WebDriver driver = DriverManager.getDriver();
 
 	By getStartedButton = By.cssSelector("button.btn");
 	By contentHeader = By.cssSelector(".content h1");

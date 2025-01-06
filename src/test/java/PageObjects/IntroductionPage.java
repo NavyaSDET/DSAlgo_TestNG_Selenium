@@ -2,14 +2,16 @@ package PageObjects;
 
 import org.testng.Assert;
 
-import BaseTest.BaseTest;
+import DriverManager.DriverManager;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class IntroductionPage extends BaseTest{
+public class IntroductionPage {
 
+	public WebDriver driver = DriverManager.getDriver();
 
 	By NumpyNinja =  By.cssSelector("a[href='/home']");
 	By Datastructure = By.cssSelector("a.dropdown-toggle");
@@ -160,5 +162,51 @@ public class IntroductionPage extends BaseTest{
 
 	public void validateNoConsoleOuput() {
 		Assert.assertFalse(driver.findElement(consoleOutput).isDisplayed());
+	}
+	
+	public String getTextForElement(By locator) {
+		String elementText = driver.findElement(locator).getText();
+		return elementText;
+	}
+
+	public String getCurrentUrl() {
+		String elementText = driver.getCurrentUrl();
+		return elementText;
+	}
+
+	public String getPageTitle() {
+		String elementText = driver.getTitle();
+		return elementText;
+	}
+	public Boolean validateElementDisplayed(By locator) {
+		return driver.findElement(locator).isDisplayed();
+	}
+
+	public Integer getElementSize(By locator) {
+		Integer elementCount = driver.findElements(locator).size();
+		return elementCount;
+	}
+
+	public String getTextForArrayElements(By locator, Integer posInteger) {
+		String elementText = driver.findElements(locator).get(posInteger).getText();
+		return elementText;
+	}
+
+	public String getAlertText(){
+		Alert alert = driver.switchTo().alert();
+		String alertText = alert.getText();
+		alert.accept();
+
+		return alertText;
+	}
+
+	public WebElement getElement(By locator) {
+		return driver.findElement(locator);
+	}
+
+	public String switchToElementAndGetValidationMessage() {
+		WebElement activeElement = driver.switchTo().activeElement();
+		String msgBrowserValidation = activeElement.getAttribute("validationMessage");
+		return msgBrowserValidation;
 	}
 }

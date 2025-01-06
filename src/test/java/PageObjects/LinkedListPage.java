@@ -4,9 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import BaseTest.BaseTest;
+import DriverManager.DriverManager;
 
-public class LinkedListPage extends BaseTest {
+public class LinkedListPage  {
+	public WebDriver driver = DriverManager.getDriver();
 
 	//LL Page general elements
 

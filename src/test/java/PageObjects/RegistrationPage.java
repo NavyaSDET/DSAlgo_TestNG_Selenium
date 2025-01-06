@@ -3,19 +3,20 @@ package PageObjects;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-
-import BaseTest.BaseTest;
 import Utilities.ExcelReader;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
-public class RegistrationPage extends BaseTest{
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+
+import DriverManager.DriverManager;
+
+public class RegistrationPage {
+	public WebDriver driver = DriverManager.getDriver();
 
 	String actualErrorMsgText1;
 	String InvalidUser_errorMsg;

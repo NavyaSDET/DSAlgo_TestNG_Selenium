@@ -5,9 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import BaseTest.BaseTest;
+import DriverManager.DriverManager;
 
-public class TreePage extends BaseTest{
+public class TreePage {
+	public WebDriver driver = DriverManager.getDriver();
 
 	private By Tree_GetStartedBtn_HomePage = By.xpath("//div[6]/div/div/a");
 	private By TreePageHeader = By.xpath("//div/h4");
