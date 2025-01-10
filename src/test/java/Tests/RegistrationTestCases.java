@@ -71,7 +71,7 @@ public class RegistrationTestCases extends BaseTest{
 
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow0", dataProviderClass = TestDataProvider.class)
-	public void the_user_clicks_register_button_with_all_fields_empty_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException {
+	public void the_user_clicks_register_button_with_all_fields_empty_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException, InterruptedException {
 		ExcelReader reader = new ExcelReader();
 
 		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
@@ -84,7 +84,8 @@ public class RegistrationTestCases extends BaseTest{
 		RGPage.enterPassword(password);
 		RGPage.enterPasswordConfirmation(passwordConfirm);
 		RGPage.clickRegisterBtn_RegisterPage();	
-		RGPage.compareActualAndExpectedBrowserErrorMsg(); //Assertion
+		String validationMessage = ip.getValidationMessage();
+		Assert.assertEquals(validationMessage, "Please fill out this field.");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow3", dataProviderClass = TestDataProvider.class)
@@ -99,7 +100,7 @@ public class RegistrationTestCases extends BaseTest{
 		RGPage.enterPassword(password);
 		RGPage.enterPasswordConfirmation(passwordConfirm);
 		RGPage.clickRegisterBtn_RegisterPage();	
-		RGPage.checkRegistrationPageURL();		//Assertion
+		Assert.assertEquals(driver.getTitle(),"NumpyNinja");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow4", dataProviderClass = TestDataProvider.class)
@@ -141,13 +142,13 @@ public class RegistrationTestCases extends BaseTest{
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void user_clicks_on_login_button_from_registration_page() {
 		RGPage.clickLoginBtn();
-		RGPage.assertLoginPage();  //Assertion
+		Assert.assertEquals(driver.getTitle(),"Login");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void user_clicks_on_sign_in_button_from_registration_page() {
 		RGPage.clickSignInBtn();
-		RGPage.assertLoginPage();  //Assertion
+		Assert.assertEquals(driver.getTitle(),"Login");
 	}
 
 }

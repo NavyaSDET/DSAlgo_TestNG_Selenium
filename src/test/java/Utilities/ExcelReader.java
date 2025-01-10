@@ -30,8 +30,7 @@ public class ExcelReader {
 			throws InvalidFormatException, IOException, OpenXML4JException {
 
 		lock.lock();
-		try (OPCPackage pkg = OPCPackage.open(new File(excelFilePath)))
-		{
+		try (OPCPackage pkg = OPCPackage.open(new File(excelFilePath))) {
 
 			Workbook workbook = new XSSFWorkbook(pkg);
 			Sheet sheet = workbook.getSheet(sheetName);

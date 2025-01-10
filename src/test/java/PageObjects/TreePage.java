@@ -3,64 +3,61 @@ package PageObjects;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
 import DriverManager.DriverManager;
 
 public class TreePage {
 	public WebDriver driver = DriverManager.getDriver();
 
-	private By Tree_GetStartedBtn_HomePage = By.xpath("//div[6]/div/div/a");
-	private By TreePageHeader = By.xpath("//div/h4");
-	private By NumpyNinjaTitle = By.xpath("//a[@class='navbar-brand']");
-	private By DataStructures_DropDownBtn = By.xpath("//a[@class='nav-link dropdown-toggle']");
-	private By SignOutBtn_Tree = By.xpath("//a[@href='/logout']");
-
+	public By Tree_GetStartedBtn_HomePage = By.xpath("//div[6]/div/div/a");
+	public By TreePageHeader = By.xpath("//div/h4");
+	public By NumpyNinjaTitle = By.xpath("//a[@class='navbar-brand']");
+	public By DataStructures_DropDownBtn = By.xpath("//a[@class='nav-link dropdown-toggle']");
+	public By SignOutBtn_Tree = By.xpath("//a[@href='/logout']");
 
 	//Tree Page Module elements
-	private By OverviewOfTrees = By.xpath("//a[@href='overview-of-trees']");
-	private By Terminologies = By.xpath("//a[@href='terminologies']");
-	private By TypesOfTrees = By.xpath("//a[@href='types-of-trees']");
-	private By TreeTraversals = By.xpath("//a[@href='tree-traversals']");
-	private By Trvaersals_Illustration = By.xpath("//a[@href='traversals-illustration']");
-	private By BinaryTrees = By.xpath("//a[@href='binary-trees']");
-	private By TypesOfBinaryTrees = By.xpath("//a[@href='types-of-binary-trees']");
-	private By ImplementationInPython = By.xpath("//a[@href='implementation-in-python']");
-	private By BinaryTreeTraversals = By.xpath("//a[@href='binary-tree-traversals']");
-	private By ImplementationOfBinaryTrees = By.xpath("//a[@href='implementation-of-binary-trees']");
-	private By ApplicationsOfBinaryTrees = By.xpath("//a[@href='applications-of-binary-trees']");
-	private By BinarySearchTrees = By.xpath("//a[@href='binary-search-trees']");
-	private By ImplementationOfBST = By.xpath("//a[@href='implementation-of-bst']");
+	public By OverviewOfTrees = By.xpath("//a[@href='overview-of-trees']");
+	public By Terminologies = By.xpath("//a[@href='terminologies']");
+	public By TypesOfTrees = By.xpath("//a[@href='types-of-trees']");
+	public By TreeTraversals = By.xpath("//a[@href='tree-traversals']");
+	public By Trvaersals_Illustration = By.xpath("//a[@href='traversals-illustration']");
+	public By BinaryTrees = By.xpath("//a[@href='binary-trees']");
+	public By TypesOfBinaryTrees = By.xpath("//a[@href='types-of-binary-trees']");
+	public By ImplementationInPython = By.xpath("//a[@href='implementation-in-python']");
+	public By BinaryTreeTraversals = By.xpath("//a[@href='binary-tree-traversals']");
+	public By ImplementationOfBinaryTrees = By.xpath("//a[@href='implementation-of-binary-trees']");
+	public By ApplicationsOfBinaryTrees = By.xpath("//a[@href='applications-of-binary-trees']");
+	public By BinarySearchTrees = By.xpath("//a[@href='binary-search-trees']");
+	public By ImplementationOfBST = By.xpath("//a[@href='implementation-of-bst']");
 
 	//Tree Details Page module elements
-	private By treeDetails_OverviewOfTrees = By.xpath("//a[@href='/tree/introduction/']");
-	private By treeDetails_Terminologies = By.xpath("//a[@href='/tree/terminologies/']");
-	private By treeDetails_TypesOfTrees = By.xpath("//a[@href='/tree/types-of-trees/']");
-	private By treeDetails_TreeTraversals = By.xpath("//a[@href='/tree/tree-traversals/']");
-	private By treeDetails_Traversals_Illustration = By.xpath("//a[@href='/tree/traversals-illustration/']");
-	private By treeDetails_BinaryTrees = By.xpath("//a[@href='/tree/binary-trees/']");
-	private By treeDetails_TypesOfBinaryTrees = By.xpath("//a[@href='/tree/types-of-binary-trees/']");
-	private By treeDetails_ImplementationInPython = By.xpath("//a[@href='/tree/implementation-in-python/']");
-	private By treeDetails_BinaryTreeTraversals = By.xpath("//a[@href='/tree/binary-tree-traversals/']");
-	private By treeDetails_ImplementationOfBinaryTrees = By.xpath("//a[@href='/tree/implementation-of-binary-trees/']");
-	private By treeDetails_ApplicationsOfBinaryTrees = By.xpath("//a[@href='/tree/applications-of-binary-trees/']");
-	private By treeDetails_BinarySearchTrees = By.xpath("//a[@href='/tree/binary-search-trees/']");
-	private By treeDetails_ImplementationOfBST = By.xpath("//a[@href='/tree/implementation-of-bst/']");
-	private By treeDetails_PracticeQuestions = By.xpath("//a[@class='list-group-item list-group-item-light text-info']");
+	public By treeDetails_OverviewOfTrees = By.xpath("//a[@href='/tree/introduction/']");
+	public By treeDetails_Terminologies = By.xpath("//a[@href='/tree/terminologies/']");
+	public By treeDetails_TypesOfTrees = By.xpath("//a[@href='/tree/types-of-trees/']");
+	public By treeDetails_TreeTraversals = By.xpath("//a[@href='/tree/tree-traversals/']");
+	public By treeDetails_Traversals_Illustration = By.xpath("//a[@href='/tree/traversals-illustration/']");
+	public By treeDetails_BinaryTrees = By.xpath("//a[@href='/tree/binary-trees/']");
+	public By treeDetails_TypesOfBinaryTrees = By.xpath("//a[@href='/tree/types-of-binary-trees/']");
+	public By treeDetails_ImplementationInPython = By.xpath("//a[@href='/tree/implementation-in-python/']");
+	public By treeDetails_BinaryTreeTraversals = By.xpath("//a[@href='/tree/binary-tree-traversals/']");
+	public By treeDetails_ImplementationOfBinaryTrees = By.xpath("//a[@href='/tree/implementation-of-binary-trees/']");
+	public By treeDetails_ApplicationsOfBinaryTrees = By.xpath("//a[@href='/tree/applications-of-binary-trees/']");
+	public By treeDetails_BinarySearchTrees = By.xpath("//a[@href='/tree/binary-search-trees/']");
+	public By treeDetails_ImplementationOfBST = By.xpath("//a[@href='/tree/implementation-of-bst/']");
+	public By treeDetails_PracticeQuestions = By.xpath("//a[@class='list-group-item list-group-item-light text-info']");
 
 	//DropDown Elements
-	private By Tree_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/tree']");
-	private By Stack_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/stack']");
-	private By Array_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/array']");
-	private By Linked_List_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/linked-list']");
-	private By Graph_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/graph']");
-	private By Queue_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/queue']");
+	public By Tree_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/tree']");
+	public By Stack_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/stack']");
+	public By Array_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/array']");
+	public By Linked_List_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/linked-list']");
+	public By Graph_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/graph']");
+	public By Queue_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/queue']");
 
 	//Try Editor elements
 
-	/*private By RunBtn_TryEditorPage = By.xpath("//button[@type='button']");
-	private By EditorWindow = By.xpath("//div[@class='CodeMirror cm-s-default']/div/textarea");*/
-	private By TryHereBtn_TreePage = By.xpath("//a[@href='/tryEditor']");
+	/*public By RunBtn_TryEditorPage = By.xpath("//button[@type='button']");
+	public By EditorWindow = By.xpath("//div[@class='CodeMirror cm-s-default']/div/textarea");*/
+	public By TryHereBtn_TreePage = By.xpath("//a[@href='/tryEditor']");
 
 	By codeEditorPage=By.cssSelector("pre.codeMirror-line");
 	By codeInputField = By.cssSelector(".CodeMirror textarea");
@@ -264,89 +261,6 @@ public class TreePage {
 		driver.findElement(treeDetails_PracticeQuestions).click();
 	}
 
-	////////////////////////////////////////////////////////////////////// 'Check if on expected Page' METHODS
-
-	public void checkIfOn_TreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Tree");
-	}
-
-	public void checkIfOn_OverviewOfTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Overview of Trees");
-	}
-
-	public void checkIfOn_TerminologiesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Terminologies");
-	}
-
-	public void checkIfOn_Traversals_IllustrationPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Traversals-Illustration");
-
-	}
-
-	public void checkIfOn_TypesOfTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Types of Trees");
-
-	}
-
-	public void checkIfOn_TreeTraversals()
-	{
-		Assert.assertEquals(driver.getTitle(),"Tree Traversals");
-	}
-
-	public void checkIfOn_BinaryTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Binary Trees");
-	}
-
-	public void checkIfOn_TypesOfBinaryTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Types of Binary Trees");
-	}
-
-	public void checkIfOn_TreeDetails_TypesOfBinaryTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Types of Binary Trees");
-	}
-
-	public void checkIfOn_ImplementationInPythonPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Implementation in Python");
-	}
-
-	public void checkIfOn_BinaryTreeTraversalsPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Binary Tree Traversals");
-	}
-
-	public void checkIfOn_ImplementationOfBinaryTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Implementation of Binary Trees");
-	}
-
-	public void checkIfOn_ApplicationsOfBinaryTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Applications of Binary trees");
-	}
-
-	public void checkIfOn_BinarySearchTreesPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Binary Search Trees");
-	}
-
-	public void checkIfOn_ImplementationOfBSTPage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Implementation Of BST");
-	}
-
-	public void checkIfOn_PracticePage()
-	{
-		Assert.assertEquals(driver.getTitle(),"Practice Questions");
-	}
 
 	///////////////////////////////////////////////////////////////////// TRY HERE EDITOR METHODS
 
@@ -365,34 +279,16 @@ public class TreePage {
 	{
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
-
 	}
-
-
 
 	public void checkIfOn_TryHereEditorPage() {
-		Assert.assertEquals(driver.getTitle(),"Assessment");
 		driver.findElement(runButton).isDisplayed();
-	}
-
-	public void check_When_EmptyCode_In_Editor()
-	{
-		Assert.assertFalse(driver.findElement(consoleOutput).isDisplayed()); //Geetha code line
-
-
-	}
-
-	public void check_When_ValidCode_In_Editor(String expectedOutputText)
-	{
-		Assert.assertEquals(driver.findElement(consoleOutput).getText(), expectedOutputText);
 	}
 
 	public void check_When_InvalidCode_In_Editor(String expectedErrorHeader, String expectedErrorMessage)
 	{
-
 		Alert alert = driver.switchTo().alert();
 		String alertText = alert.getText();
-		Assert.assertEquals(alertText, expectedErrorMessage);
 	}
 
 

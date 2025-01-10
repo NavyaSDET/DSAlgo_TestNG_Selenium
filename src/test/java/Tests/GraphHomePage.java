@@ -1,5 +1,6 @@
 package Tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import Utilities.RetryAnalyzer;
@@ -21,100 +22,108 @@ public class GraphHomePage extends BaseTest{
 		ip =  new IntroductionPage();
 		hp.openUrl();
 		hp.clickOnHomePageGetStartedButton();
-		ip.completeTheLOgin();
+		ip.completeTheLogin();
 		ip.clickOnGetStartedButtonOfGraph();
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_navigated_to_graph_details_page_when_clicked_on_get_started () {
-		gp.validateUserIsOnGraphDetailPage();
-	}
+		Assert.assertEquals(driver.findElement(gp.GraphDetail).getText(), "Graph"); 
+		Assert.assertTrue(driver.findElement(gp.GraphDetail).isDisplayed());
+		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/graph/");
+		Assert.assertEquals(driver.findElement(gp.topicsCovered).getText(),"Topics Covered");	
+		Assert.assertTrue(driver.findElement(gp.topicsCovered).isDisplayed());
+		Assert.assertTrue(driver.findElement(gp.TopicsCoveredOptions).isDisplayed());	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_Graph_in_Graph_page () {
-		gp.validateUserIsOnGraphDetailPage();
 		gp.clickOnGraphLinkUnderGraphDetails();
-		gp.validateUserIsOnGraphsUnderGraphDetails();
+		Assert.assertEquals(driver.findElement(gp.graphText).getText(),"Graph");	;
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_Try_here_link_page_from_graphs () {
 		gp.clickOnGraphLinkUnderGraphDetails();
-		gp.validateUserIsOnGraphsUnderGraphDetails();
+		Assert.assertEquals(driver.findElement(gp.graphText).getText(),"Graph");	;
 		ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_graphs_page () {
 		gp.clickOnGraphLinkUnderGraphDetails();
-		gp.validateUserIsOnGraphsUnderGraphDetails();
+		Assert.assertEquals(driver.findElement(gp.graphText).getText(),"Graph");	;
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+		Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_graphs_page () {
 		gp.clickOnGraphLinkUnderGraphDetails();
-		gp.validateUserIsOnGraphsUnderGraphDetails();
+		Assert.assertEquals(driver.findElement(gp.graphText).getText(),"Graph");	;
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		ip.validateNoConsoleOuput();
+		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_graphs_runs_successfully () {
 		gp.clickOnGraphLinkUnderGraphDetails();
-		gp.validateUserIsOnGraphsUnderGraphDetails();
+		Assert.assertEquals(driver.findElement(gp.graphText).getText(),"Graph");	;
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("print(\"hello\")");
 		ip.clickOnRunButton();
-		ip.validateConsoleOutput("hello");
+		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_Graph_Representations_page () {
-		gp.validateUserIsOnGraphDetailPage();
 		gp.clickonGraphRepresentations();
-	    gp.validateUserIsOnGraphRepresentations();
+	    Assert.assertEquals(driver.findElement(gp.graphRepresentationsText).getText(),"Graph Representations");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_click_on_Try_here_link_from_graph_representations_page () {
 		gp.clickonGraphRepresentations();
-	    gp.validateUserIsOnGraphRepresentations();
+	    Assert.assertEquals(driver.findElement(gp.graphRepresentationsText).getText(),"Graph Representations");
 	    ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_graph_representations_page  () {
 		gp.clickonGraphRepresentations();
-		gp.validateUserIsOnGraphRepresentations();
+		Assert.assertEquals(driver.findElement(gp.graphRepresentationsText).getText(),"Graph Representations");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+		Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_graph_representations_page  () {
 		gp.clickonGraphRepresentations();
-		gp.validateUserIsOnGraphRepresentations();
+		Assert.assertEquals(driver.findElement(gp.graphRepresentationsText).getText(),"Graph Representations");
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		ip.validateNoConsoleOuput();
+		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_graph_representations_runs_successfully  () {
 		gp.clickonGraphRepresentations();
-		gp.validateUserIsOnGraphRepresentations();
+		Assert.assertEquals(driver.findElement(gp.graphRepresentationsText).getText(),"Graph Representations");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("print(\"hello\")");
 		ip.clickOnRunButton();
-		ip.validateConsoleOutput("hello");
+		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
 	}
 }

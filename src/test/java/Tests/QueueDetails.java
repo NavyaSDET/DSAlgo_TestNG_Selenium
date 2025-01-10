@@ -1,5 +1,6 @@
 package Tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import Utilities.RetryAnalyzer;
@@ -21,189 +22,225 @@ public class QueueDetails extends BaseTest{
 		ip =  new IntroductionPage();
 		hp.openUrl();
 		hp.clickOnHomePageGetStartedButton();
-		ip.completeTheLOgin();
+		ip.completeTheLogin();
 		ip.clickOnGetStartedButtonOfQueue();
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_navigated_to_queue_details_page_when_clicked_on_get_started () {
-		qp.validateUserIsOnQueueDetailsPage();
-	}
+		Assert.assertEquals(driver.findElement(qp.queuepage).getText(), "Queue"); 
+		Assert.assertTrue(driver.findElement(qp.queuepage).isDisplayed());
+		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/queue/");
+		Assert.assertEquals(driver.findElement(qp.topicsCovered).getText(),"Topics Covered");	
+		Assert.assertTrue(driver.findElement(qp.topicsCovered).isDisplayed());
+		Assert.assertTrue(driver.findElement(qp.TopicsCoveredOptions).isDisplayed());	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_Implementations_of_Queue_in_Python () {
-		qp.validateUserIsOnQueueDetailsPage();
 		qp.clickOnImplementationOfQueueInPython();
-		qp.validateUserIsOnQueueInPythonPage();
+		Assert.assertTrue(driver.findElement(qp.implementationOfQueueInPythonPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationOfQueueInPythonPage).getText(), "Implementation of Queue in Python");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_open_try_editor_page_from_Implementation_of_Queue_in_python () {
 		qp.clickOnImplementationOfQueueInPython();
-		qp.validateUserIsOnQueueInPythonPage();
+		Assert.assertTrue(driver.findElement(qp.implementationOfQueueInPythonPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationOfQueueInPythonPage).getText(), "Implementation of Queue in Python");
 		ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_editor_for_Implementation_of_Queue_in_python () {
 		qp.clickOnImplementationOfQueueInPython();
-		qp.validateUserIsOnQueueInPythonPage();
+		Assert.assertTrue(driver.findElement(qp.implementationOfQueueInPythonPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationOfQueueInPythonPage).getText(), "Implementation of Queue in Python");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_Implementation_of_Queue_in_python () {
 		qp.clickOnImplementationOfQueueInPython();
-		qp.validateUserIsOnQueueInPythonPage();
+		Assert.assertTrue(driver.findElement(qp.implementationOfQueueInPythonPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationOfQueueInPythonPage).getText(), "Implementation of Queue in Python");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_Implementation_of_Queue_in_python_runs_successfully () {
 		qp.clickOnImplementationOfQueueInPython();
-		qp.validateUserIsOnQueueInPythonPage();
+		Assert.assertTrue(driver.findElement(qp.implementationOfQueueInPythonPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationOfQueueInPythonPage).getText(), "Implementation of Queue in Python");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("print(\"hello\")");
 		ip.clickOnRunButton();
-		ip.validateConsoleOutput("hello");
+		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_Implementation_using_collections_deque () {
-		qp.validateUserIsOnQueueDetailsPage();
 		qp.clickOnImplementationUsingCollectionsDeque();
-		qp.validateUserIsOnImplementationUsingCollectionsDequePage();
+		Assert.assertTrue(driver.findElement(qp.implementaionUsingCollectionDequePage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementaionUsingCollectionDequePage).getText(), "Implementation using collections.deque");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_open_try_editor_page_from_Implementation_using_collections_deque () {
 		qp.clickOnImplementationUsingCollectionsDeque();
-		qp.validateUserIsOnImplementationUsingCollectionsDequePage();
+		Assert.assertTrue(driver.findElement(qp.implementaionUsingCollectionDequePage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementaionUsingCollectionDequePage).getText(), "Implementation using collections.deque");
 		ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_editor_for_Implementation_using_collections_deque () {
 		qp.clickOnImplementationUsingCollectionsDeque();
-		qp.validateUserIsOnImplementationUsingCollectionsDequePage();
+		Assert.assertTrue(driver.findElement(qp.implementaionUsingCollectionDequePage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementaionUsingCollectionDequePage).getText(), "Implementation using collections.deque");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_Implementation_using_collections_deque () {
 		qp.clickOnImplementationUsingCollectionsDeque();
-		qp.validateUserIsOnImplementationUsingCollectionsDequePage();
+		Assert.assertTrue(driver.findElement(qp.implementaionUsingCollectionDequePage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementaionUsingCollectionDequePage).getText(), "Implementation using collections.deque");
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		ip.validateNoConsoleOuput();
+		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_Implementation_using_collections_deque_runs_successfully () {
 		qp.clickOnImplementationUsingCollectionsDeque();
-		qp.validateUserIsOnImplementationUsingCollectionsDequePage();
+		Assert.assertTrue(driver.findElement(qp.implementaionUsingCollectionDequePage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementaionUsingCollectionDequePage).getText(), "Implementation using collections.deque");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("print(\"hello\")");
 		ip.clickOnRunButton();
-		ip.validateConsoleOutput("hello");
+		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_queue_operations_page() {
-		qp.validateUserIsOnQueueDetailsPage();
 		qp.clickOnQueueOperations();
-		qp.validateUserIsOnQueueOperationsPage();
+		Assert.assertTrue(driver.findElement(qp.queueOperationsPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.queueOperationsPage).getText(), "Queue Operations");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_open_try_editor_page_from_queue_operations () {
 		qp.clickOnQueueOperations();
-		qp.validateUserIsOnQueueOperationsPage();
+		Assert.assertTrue(driver.findElement(qp.queueOperationsPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.queueOperationsPage).getText(), "Queue Operations");
 		ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_editor_for_queue_operations () {
 		qp.clickOnQueueOperations();
-		qp.validateUserIsOnQueueOperationsPage();
+		Assert.assertTrue(driver.findElement(qp.queueOperationsPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.queueOperationsPage).getText(), "Queue Operations");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_queue_operations () {
 		qp.clickOnQueueOperations();
-		qp.validateUserIsOnQueueOperationsPage();
+		Assert.assertTrue(driver.findElement(qp.queueOperationsPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.queueOperationsPage).getText(), "Queue Operations");
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		ip.validateNoConsoleOuput();
+		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_queue_operations_runs_successfully () {
 		qp.clickOnQueueOperations();
-		qp.validateUserIsOnQueueOperationsPage();
+		Assert.assertTrue(driver.findElement(qp.queueOperationsPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.queueOperationsPage).getText(), "Queue Operations");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_implementation_using_array () {
-		qp.validateUserIsOnQueueDetailsPage();
 		qp.clickOnImplementationUsingArray();
-		qp.validateUserIsOnImplementationUsingArrayPage();
+		Assert.assertTrue(driver.findElement(qp.implementationUsingCollectionsArrayPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationUsingCollectionsArrayPage).getText(), "Implementation using array");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_open_try_editor_page_from_implementation_using_array () {
 		qp.clickOnImplementationUsingArray();
-		qp.validateUserIsOnImplementationUsingArrayPage();
+		Assert.assertTrue(driver.findElement(qp.implementationUsingCollectionsArrayPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationUsingCollectionsArrayPage).getText(), "Implementation using array");
 		ip.clickOnTryHerebutton();
-		ip.codeTryEditorPage();
+		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
+		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Error_message_displayed_for_invalid_code_on_try_editor_for_implementation_using_array () {
 		qp.clickOnImplementationUsingArray();
-		qp.validateUserIsOnImplementationUsingArrayPage();
+		Assert.assertTrue(driver.findElement(qp.implementationUsingCollectionsArrayPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationUsingCollectionsArrayPage).getText(), "Implementation using array");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("ABC");
 		ip.clickOnRunButton();
-		ip.validateErrorMessageDisplayedOnAlert("dsportalapp.herokuapp.com says", "NameError: name 'ABC' is not defined on line 1");
+		String alertMessage = ip.getAlertText();
+		ip.acceptAlert();
+Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void No_error_message_displayed_for_empty_code_on_try_editor_for_implementation_using_array () {
 		qp.clickOnImplementationUsingArray();
-		qp.validateUserIsOnImplementationUsingArrayPage();
+		Assert.assertTrue(driver.findElement(qp.implementationUsingCollectionsArrayPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationUsingCollectionsArrayPage).getText(), "Implementation using array");
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		ip.validateNoConsoleOuput();
+		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Valid_code_on_try_editor_for_implementation_using_array_runs_successfully () {
 		qp.clickOnImplementationUsingArray();
-		qp.validateUserIsOnImplementationUsingArrayPage();
+		Assert.assertTrue(driver.findElement(qp.implementationUsingCollectionsArrayPage).isDisplayed());
+		Assert.assertEquals(driver.findElement(qp.implementationUsingCollectionsArrayPage).getText(), "Implementation using array");
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor("print(\"hello\")");
 		ip.clickOnRunButton();
-		ip.validateConsoleOutput("hello");
+		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
 	}
 }

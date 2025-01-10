@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import Utilities.ExcelReader;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
@@ -24,16 +23,16 @@ public class RegistrationPage {
 	ExcelReader excelReader = new ExcelReader();
 
 	//2. Web Elements locators using By class
-	private By GetStartedButton = By.className("btn");
-	private By RegisterButton_GetStartedPage = By.xpath("//div[2]/ul/a[2]"); //Register button from Get Started page
-	private By RegisterButton_RegPage = By.xpath("//input[@value='Register']"); //Register button from Registration page
-	private By UsernameTextbox = By.xpath("//div[@class='col-sm']/form/input[2][@name='username']");
-	private By PasswordTextbox = By.xpath("//div[@class='col-sm']/form/input[3][@name='password1']");
-	private By ConfirmPasswordTextbox = By.xpath("//div[@class='col-sm']/form/input[4][@name='password2']");
-	private By LoginBtn = By.xpath("//div[2]/a[@href='/login']");
-	private By SignInBtn = By.xpath("//div[@class='navbar-nav']/ul/a[@href='/login']");
-	private By Error_PswdDoNotMatch = By.xpath("//div[@class='alert alert-primary']");//pswds do not match
-	private By RegisterSuccessMsg = By.xpath("//div[@class='alert alert-primary']");
+	public By GetStartedButton = By.className("btn");
+	public By RegisterButton_GetStartedPage = By.xpath("//div[2]/ul/a[2]"); //Register button from Get Started page
+	public By RegisterButton_RegPage = By.xpath("//input[@value='Register']"); //Register button from Registration page
+	public By UsernameTextbox = By.xpath("//div[@class='col-sm']/form/input[2][@name='username']");
+	public By PasswordTextbox = By.xpath("//div[@class='col-sm']/form/input[3][@name='password1']");
+	public By ConfirmPasswordTextbox = By.xpath("//div[@class='col-sm']/form/input[4][@name='password2']");
+	public By LoginBtn = By.xpath("//div[2]/a[@href='/login']");
+	public By SignInBtn = By.xpath("//div[@class='navbar-nav']/ul/a[@href='/login']");
+	public By Error_PswdDoNotMatch = By.xpath("//div[@class='alert alert-primary']");//pswds do not match
+	public By RegisterSuccessMsg = By.xpath("//div[@class='alert alert-primary']");
 	@FindBy(xpath ="//div[@class='alert alert-primary']" )
 	WebElement text_errorMsg;
 
@@ -155,25 +154,6 @@ public class RegistrationPage {
 	public String activeElementBrowserValidation()   // Capture error - Please fill out this field
 	{
 		return driver.findElement(UsernameTextbox).getAttribute("validationMessage");
-	}
-
-	public void compareActualAndExpectedBrowserErrorMsg()   //'Please fill out this field' error message
-	{
-		WebElement activeElement = driver.switchTo().activeElement();  //'Please fill out this field' error message
-		String msgBrowserValidation = activeElement.getAttribute("validationMessage");
-		String expectedErrorMsg = "Please fill out this field.";
-		Assert.assertEquals(msgBrowserValidation, expectedErrorMsg);
-	}
-
-	public void checkRegistrationPageURL()
-	{
-
-		 Assert.assertEquals(driver.getTitle(),"NumpyNinja");
-	}
-
-	public void assertLoginPage()
-	{
-		 Assert.assertEquals(driver.getTitle(),"Login");
 	}
 
 	public void Land_On_RegistrationPage()
