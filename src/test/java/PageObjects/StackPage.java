@@ -21,6 +21,8 @@ public class StackPage {
 	public By ApplicationsText=By.cssSelector("strong .bg-secondary");
 
 	public By practiceQuestionsLink=By.cssSelector("a[href='/graph/practice']");
+	public By stackTopicsList = By.cssSelector("ul a.list-group-item");
+
 
 	public void clickOnOperationsInStackLink() {
 		driver.findElement(operationsInStackLink).click();
@@ -32,5 +34,9 @@ public class StackPage {
 	
 	public void clickOnApplicationsLink() {
 		driver.findElement(ApplicationsLink).click();	
+	}
+	
+	public void clickOnStackTopListByPosition(int position) {
+		driver.findElements(stackTopicsList).get(position).click();
 	}
 }

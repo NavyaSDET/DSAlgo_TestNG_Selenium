@@ -20,6 +20,8 @@ public class QueuePage {
 	public By implementationUsingCollectionsArrayPage=By.cssSelector("strong .bg-secondary");
 	public By queueOperationsLink=By.cssSelector("a[href='QueueOp']");
 	public By queueOperationsPage=By.cssSelector("strong .bg-secondary");
+	public By queueTopicsList = By.cssSelector("ul a.list-group-item");
+
 	
 	public void clickOnImplementationOfQueueInPython() {
 		driver.findElement(implementationOfQueueInPythonLink).click();
@@ -37,5 +39,8 @@ public class QueuePage {
 		driver.findElement(queueOperationsLink).click();
 	}
 	
+	public void clickOnQueueTopListByPosition(int position) {
+		driver.findElements(queueTopicsList).get(position).click();
+	}
 }
 

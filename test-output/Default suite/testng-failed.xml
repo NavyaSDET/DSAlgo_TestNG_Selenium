@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Tests.RegistrationTestCases">
+      <class name="Tests.LoginTestNav">
         <methods>
           <include name="tearDown"/>
-          <include name="the_user_clicks_register_button_with_all_fields_empty_on_registration_form"/>
-          <include name="landOnRegisterPage"/>
           <include name="setUp"/>
-          <include name="the_user_clicks_register_button_after_entering_a_username_with_spacebar_characters_other_than_digits_and_on_registration_form" invocation-numbers="0"/>
+          <include name="loginIntoApp"/>
+          <include name="DS_Algo_Sign_in_Page_with_blank_password" invocation-numbers="0"/>
           <include name="clearCookies"/>
         </methods>
-      </class> <!-- Tests.RegistrationTestCases -->
+      </class> <!-- Tests.LoginTestNav -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

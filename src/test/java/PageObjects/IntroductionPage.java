@@ -5,6 +5,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class IntroductionPage {
 
@@ -74,7 +75,10 @@ public class IntroductionPage {
 	}
 
 	public void enterCodeInEditor(String codeText  )  {
-		driver.findElement(codeInputField).sendKeys(codeText);
+		WebElement activeElement = driver.switchTo().activeElement();
+		Actions action = new Actions(driver);
+		action.moveToElement(activeElement).click().perform();
+		activeElement.sendKeys(codeText);
 	}
 
 	public void clickOnRunButton() {
@@ -85,11 +89,6 @@ public class IntroductionPage {
 		Alert alert= driver.switchTo().alert();
 		String alertText=alert.getText();
 		return alertText;
-	}
-
-	public void acceptAlert() {
-		Alert alert= driver.switchTo().alert();
-		alert.accept();
 	}
 
 	public void clickOnGetStartedButtonOfArray() {

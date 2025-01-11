@@ -20,29 +20,31 @@ public class LoginPage {
 	public By txt_password = By.id("id_password");
 	public By btn_login =   By.xpath("//input[@value='Login']");
 	public By warningMessage = By.cssSelector(".alert.alert-primary");
-	
+
 	public void enterUsername(String username) {
 		driver.findElement(txt_username).sendKeys(username);
-		
+
 	}
-	
-    public void enterPassword(String password) {
-    	driver.findElement(txt_password).sendKeys(password);
-    }
-    
-    public void clicklogin() {
-    	driver.findElement(btn_login).click();
-    }
-    
-    public void loginValiduser(String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-    	ExcelReader reader = new ExcelReader();
+
+	public void enterPassword(String password) {
+		driver.findElement(txt_password).sendKeys(password);
+	}
+
+	public void clicklogin() {
+		driver.findElement(btn_login).click();
+	}
+
+	public void loginValiduser(String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
+		ExcelReader reader = new ExcelReader();
 
 		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
 		String username = testdata.get(rowNumber).get("username");
 		String password = testdata.get(rowNumber).get("password");
-    	driver.findElement(txt_username).sendKeys(username);
-    	driver.findElement(txt_password).sendKeys(password);
-    	driver.findElement(btn_login).click();
-    }
-    
+		driver.findElement(txt_username).sendKeys(username);
+		if(password != null) {
+			driver.findElement(txt_password).sendKeys(password);
+		}
+		driver.findElement(btn_login).click();
+	}
+
 }

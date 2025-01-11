@@ -30,6 +30,8 @@ public class LinkedListPage {
 	public By LL_Details_Traversal = By.cssSelector("a[href='/linked-list/traversal/']");
 	public By LL_Details_Insertion = By.cssSelector("a[href='/linked-list/insertion-in-linked-list/']");
 	public By LL_Details_Deletion = By.cssSelector("a[href='/linked-list/deletion-in-linked-list/']");
+	public By LL_Topics_List = By.cssSelector("ul a.list-group-item");
+
 
 	// GENERAL ELEMENT METHODS
 
@@ -42,7 +44,6 @@ public class LinkedListPage {
 	}
 
 	public void click_LinkedList_FromDropDown() {
-		driver.findElement(DataStructures_DropDownBtn).click();
 		driver.findElement(LinkedList_FromDropDown).click();
 	}
 
@@ -70,6 +71,10 @@ public class LinkedListPage {
 
 	public void clickOn_LL_Deletion() {
 		driver.findElement(Deletion).click();
+	}
+	
+	public void clickOnLinkedListTopListByPosition(int position) {
+		driver.findElements(LL_Topics_List).get(position).click();
 	}
 
 	// LL Details Page module methods

@@ -37,191 +37,104 @@ public class ArrayDetailsPage extends BaseTest{
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void validate_user_navigated_to_array_details_page_when_clicked_on_get_started(){
-		Assert.assertEquals(driver.findElement(ap.arrayDetail).getText(), "Array"); 
-		Assert.assertTrue(driver.findElement(ap.arrayDetail).isDisplayed());
-		Assert.assertEquals(driver.getCurrentUrl(),"https://dsportalapp.herokuapp.com/array/");
-		Assert.assertEquals(driver.findElement(ap.topicsCovered).getText(),"Topics Covered");	
-		Assert.assertTrue(driver.findElement(ap.topicsCovered).isDisplayed());
-		Assert.assertTrue(driver.findElement(ap.TopicsCoveredOptions).isDisplayed());
+		Assert.assertEquals(ip.getTextForElement(ap.arrayDetail), "Array"); 
+		Assert.assertTrue(ip.validateElementDisplayed(ap.arrayDetail));
+		Assert.assertEquals(ip.getCurrentUrl(),"https://dsportalapp.herokuapp.com/array/");
+		Assert.assertEquals(ip.getTextForElement(ap.topicsCovered),"Topics Covered");	
+		Assert.assertTrue(ip.validateElementDisplayed(ap.topicsCovered));
+		Assert.assertTrue(ip.validateElementDisplayed(ap.TopicsCoveredOptions));
 		}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void validate_user_can_navigate_to_Arrays_in_python (){
 		ap.clickOnArrayInPythonLink();
-		Assert.assertEquals(driver.findElement(ap.arraysInPythonText).getText(),"Arrays in Python");	
+		Assert.assertEquals(ip.getTextForElement(ap.arraysInPythonText),"Arrays in Python");	
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void validate_user_can_try_here_link_page_from_arrays_in_python() {
 		ap.clickOnArrayInPythonLink();
-		Assert.assertEquals(driver.findElement(ap.arraysInPythonText).getText(),"Arrays in Python");	
+		Assert.assertEquals(ip.getTextForElement(ap.arraysInPythonText),"Arrays in Python");	
 		ip.clickOnTryHerebutton();
-		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
-		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
+		Assert.assertTrue(ip.validateElementDisplayed(ip.codeEditorPage));
+		Assert.assertTrue(ip.validateElementDisplayed(ip.runButton));
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_Queue_operations () {
-		ap.clickOnArrayInPythonLink();
-		Assert.assertEquals(driver.findElement(ap.arraysInPythonText).getText(),"Arrays in Python");	
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "arrayInValidcodeTopics", dataProviderClass = TestDataProvider.class)
+	public void Error_message_displayed_for_invalid_code_on_try_Editor (int topicNumber, String inValidCode) {
+		ap.clickOnArrayTopListByPosition(topicNumber);
 		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("ABC");
+		ip.enterCodeInEditor(inValidCode);
 		ip.clickOnRunButton();
 		String alertMessage = ip.getAlertText();
 		Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
-		ip.acceptAlert();
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor_for_array_in_python () {
-		ap.clickOnArrayInPythonLink();
-		Assert.assertEquals(driver.findElement(ap.arraysInPythonText).getText(),"Arrays in Python");	
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "arrayInValidcodeTopics", dataProviderClass = TestDataProvider.class)
+	public void No_error_message_displayed_for_empty_code_on_try_editor(int topicNumber, String inValidCode) {
+		ap.clickOnArrayTopListByPosition(topicNumber);
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
-		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
+		Assert.assertFalse(ip.validateElementDisplayed(ip.consoleOutput));
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Valid_code_on_try_editor_for_arrays_in_python_runs_successfully () {
-		ap.clickOnArrayInPythonLink();
-		Assert.assertEquals(driver.findElement(ap.arraysInPythonText).getText(),"Arrays in Python");	
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "arrayValidcodeTopics", dataProviderClass = TestDataProvider.class)
+	public void Valid_code_on_try_editor_runs_successfully (int topicNumber, String validCode) {
+		ap.clickOnArrayTopListByPosition(topicNumber);
 		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("print(\"hello\")");
+		ip.enterCodeInEditor(validCode);
 		ip.clickOnRunButton();
-		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
+		Assert.assertEquals(ip.getTextForElement(ip.consoleOutput), "Hello");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_Arrays_using_list () {
 		ap.clickOnArrayUsingListLink();
-		Assert.assertEquals(driver.findElement(ap.arraysUsingListText).getText(),"Arrays Using List");
+		Assert.assertEquals(ip.getTextForElement(ap.arraysUsingListText),"Arrays Using List");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_Try_here_link_page_from_Array_using_list () {
 		ap.clickOnArrayUsingListLink();
 		ip.clickOnTryHerebutton();
-		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
-		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_Array_using_list () {
-		ap.clickOnArrayUsingListLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("ABC");
-		ip.clickOnRunButton();
-		String alertMessage = ip.getAlertText();
-		ip.acceptAlert();
-		Assert.assertEquals(alertMessage, "NameError: name 'ABC' is not defined on line 1");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor_for_Array_using_list() {
-		ap.clickOnArrayUsingListLink();
-		ip.clickOnTryHerebutton();
-		ip.clickOnRunButton();
-		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Valid_code_on_try_editor_for_Array_using_list_runs_successfully () {
-		ap.clickOnArrayUsingListLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("print(\"hello\")");
-		ip.clickOnRunButton();
-		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
+		Assert.assertTrue(ip.validateElementDisplayed(ip.codeEditorPage));
+		Assert.assertTrue(ip.validateElementDisplayed(ip.runButton));
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_basic_opertaions_in_lists () {
 		ap.clickOnBasicOperationsLink();
-		Assert.assertEquals(driver.findElement(ap.basicOperationsInListText).getText(),"Basic Operations in Lists");
+		Assert.assertEquals(ip.getTextForElement(ap.basicOperationsInListText),"Basic Operations in Lists");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_Try_here_link_page_from_Basic_operations_in_lists () {
 		ap.clickOnBasicOperationsLink();
 		ip.clickOnTryHerebutton();
-		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
-		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_Basic_operations_in_lists () {
-		ap.clickOnBasicOperationsLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("ABC");
-		ip.clickOnRunButton();
-		String alertMessage = ip.getAlertText();
-		ip.acceptAlert();
-		Assert.assertEquals(alertMessage,"NameError: name 'ABC' is not defined on line 1");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor_for_basic_operations_in_lists () {
-		ap.clickOnBasicOperationsLink();
-		ip.clickOnTryHerebutton();
-		ip.clickOnRunButton();
-		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Valid_code_on_try_editor_for_basic_operations_in_lists_runs_successfully () {
-		ap.clickOnBasicOperationsLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("print(\"hello\")");
-		ip.clickOnRunButton();
-		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
+		Assert.assertTrue(ip.validateElementDisplayed(ip.codeEditorPage));
+		Assert.assertTrue(ip.validateElementDisplayed(ip.runButton));
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_navigate_to_applications_of_array () {
 		ap.clickOnApplicationOfArrayLink();
-		Assert.assertEquals(driver.findElement(ap.applicationsOfArrayText).getText(),"Applications of Array");
+		Assert.assertEquals(ip.getTextForElement(ap.applicationsOfArrayText),"Applications of Array");
 	}
 
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void Validate_user_can_Try_here_link_page_from_applications_of_array () {
 		ap.clickOnApplicationOfArrayLink();
 		ip.clickOnTryHerebutton();
-		Assert.assertTrue(driver.findElement(ip.codeEditorPage).isDisplayed());
-		Assert.assertTrue(driver.findElement(ip.runButton).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Error_message_displayed_for_invalid_code_on_try_Editor_for_applications_of_array () {
-		ap.clickOnApplicationOfArrayLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("ABC");
-		ip.clickOnRunButton();
-		String alertMessage = ip.getAlertText();
-		ip.acceptAlert();
-		Assert.assertEquals(alertMessage,"NameError: name 'ABC' is not defined on line 1");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor_for_applications_of_array () {
-		ap.clickOnApplicationOfArrayLink();
-		ip.clickOnTryHerebutton();
-		ip.clickOnRunButton();
-		Assert.assertFalse(driver.findElement(ip.consoleOutput).isDisplayed());
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class)
-	public void Valid_code_on_try_editor_for_applications_of_array_runs_successfully () {
-		ap.clickOnApplicationOfArrayLink();
-		ip.clickOnTryHerebutton();
-		ip.enterCodeInEditor("print(\"hello\")");
-		ip.clickOnRunButton();
-		Assert.assertEquals(driver.findElement(ip.consoleOutput).getText(), "hello");
+		Assert.assertTrue(ip.validateElementDisplayed(ip.codeEditorPage));
+		Assert.assertTrue(ip.validateElementDisplayed(ip.runButton));
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void validate_user_can_click_on_practicequestions () {
 		ap.clickOnApplicationOfArrayLink();
 		ap.clickOnPracticeQuestionsLink();
-		Assert.assertEquals(driver.getCurrentUrl() ,"https://dsportalapp.herokuapp.com/array/practice");
-		Assert.assertTrue(driver.findElement(ap.practiceQuestion1).isDisplayed());
+		Assert.assertEquals(ip.getCurrentUrl() ,"https://dsportalapp.herokuapp.com/array/practice");
+		Assert.assertTrue(ip.validateElementDisplayed(ap.practiceQuestion1));
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
@@ -288,7 +201,7 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnRunButton();
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);	
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 
@@ -300,7 +213,7 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnSubmitButton();		
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);		
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 
@@ -321,7 +234,7 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnRunButton();
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 
@@ -333,9 +246,8 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnSubmitButton();
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
-
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void validate_user_is_presented_with_error_message_for_the_code_with_the_invalid_syntax_in_tryEditor_for_Max_Consecutive_Ones () {
@@ -353,8 +265,9 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.clickOnEvenNumbersQuestionLink();
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnRunButton();
+		Thread.sleep(1000);
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);		
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 
@@ -365,8 +278,9 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.clickOnEvenNumbersQuestionLink();
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnSubmitButton();
+		Thread.sleep(3000);
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);		
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
@@ -384,9 +298,10 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.clickOnPracticeQuestionsLink();
 		ap.clickOnSortedArrayQuestionLink();
 		ap.enterPythonCode(sheetName, rowNumber);
-		ap.clickOnRunButton(); 
+		ap.clickOnRunButton();
+		Thread.sleep(1000);
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);		
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 
@@ -398,7 +313,7 @@ public class ArrayDetailsPage extends BaseTest{
 		ap.enterPythonCode(sheetName, rowNumber);
 		ap.clickOnSubmitButton();
 		String runResultText = ap.getTheRunResultText(sheetName, rowNumber);		
-		Assert.assertEquals(driver.findElement(ap.practiceQuestionOutPut).getText(), runResultText);
+		Assert.assertEquals(ip.getTextForElement(ap.practiceQuestionOutPut), runResultText);
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)

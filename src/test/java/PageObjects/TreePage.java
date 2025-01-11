@@ -52,6 +52,8 @@ public class TreePage {
 	public By Linked_List_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/linked-list']");
 	public By Graph_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/graph']");
 	public By Queue_FromDropDown = By.xpath("//div[@class='dropdown-menu show']/a[@href='/queue']");
+	public By Tree_Topics_List = By.cssSelector("ul a.list-group-item");
+
 
 	//Try Editor elements
 
@@ -77,12 +79,6 @@ public class TreePage {
 		driver.findElement(Tree_GetStartedBtn_HomePage).click();
 	}
 
-	public void clickDataStructures_DropDownBtn()
-	{
-		driver.findElement(DataStructures_DropDownBtn).click();
-
-	}
-
 	public void click_TryHereBtn_TreePage()
 	{
 
@@ -99,6 +95,10 @@ public class TreePage {
 	public void click_Stack_FromDropDown()
 	{
 		driver.findElement(Stack_FromDropDown).click();
+	}
+	
+	public void clickOnTreeTopListByPosition(int position) {
+		driver.findElements(Tree_Topics_List).get(position).click();
 	}
 
 	public void click_Array_FromDropDown()

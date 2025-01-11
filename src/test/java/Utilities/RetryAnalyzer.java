@@ -11,7 +11,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     private int retryCount = 0;
 
     public RetryAnalyzer() {
-        maxRetryCount = Integer.parseInt(System.getProperty("maxRetries", "2"));
+        maxRetryCount = Integer.parseInt(System.getProperty("maxRetries", "1"));
     }
 
     @Override

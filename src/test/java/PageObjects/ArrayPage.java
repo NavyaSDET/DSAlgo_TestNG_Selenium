@@ -35,6 +35,7 @@ public class ArrayPage {
 	public By maxConsecutiveOneQuestion = By.cssSelector("a[href='/question/2']");
 	public By evenNumberQuestion = By.cssSelector("a[href='/question/3']");
 	public By sortedArrayQuestion4 = By.cssSelector("a[href='/question/4']");
+	public By arrayTopicsList = By.cssSelector("ul a.list-group-item");
 
 	public By practiceQuestionpage = By.cssSelector("div.container");
 	public By practiceQuestionPageHeader = By.cssSelector(".question h2");
@@ -59,6 +60,10 @@ public class ArrayPage {
 
 	public void clickOnApplicationOfArrayLink() {
 		driver.findElement(applicationsOfArrayLink).click();
+	}
+	
+	public void clickOnArrayTopListByPosition(int position) {
+		driver.findElements(arrayTopicsList).get(position).click();
 	}
 
 	public String getTheRunResultText(String sheetName, int rowNumber)

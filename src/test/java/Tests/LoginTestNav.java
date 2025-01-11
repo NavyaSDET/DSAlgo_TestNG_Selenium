@@ -56,18 +56,18 @@ public class LoginTestNav extends BaseTest{
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow0", dataProviderClass = TestDataProvider.class)
 	public void DS_Algo_Sign_in_Page_with_invalid_username_and_password (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
 		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(driver.findElement(login.warningMessage).getText(),"Invalid Username and Password");
+		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"Invalid Username and Password");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow3", dataProviderClass = TestDataProvider.class)
 	public void DS_Algo_Sign_in_Page_with_valid_username_and_invalid_password (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
 		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(driver.findElement(login.warningMessage).getText(),"Invalid Username and Password");
+		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"Invalid Username and Password");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow2", dataProviderClass = TestDataProvider.class)
 	public void DS_Algo_Sign_in_Page__with_valid_username_and_Valid_password  (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
 		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(driver.findElement(login.warningMessage).getText(),"You are logged in");
+		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"You are logged in");
 	}
 }

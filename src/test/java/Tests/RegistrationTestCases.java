@@ -100,7 +100,7 @@ public class RegistrationTestCases extends BaseTest{
 		RGPage.enterPassword(password);
 		RGPage.enterPasswordConfirmation(passwordConfirm);
 		RGPage.clickRegisterBtn_RegisterPage();	
-		Assert.assertEquals(driver.getTitle(),"NumpyNinja");
+		Assert.assertEquals(ip.getPageTitle(),"NumpyNinja");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow4", dataProviderClass = TestDataProvider.class)
@@ -142,13 +142,13 @@ public class RegistrationTestCases extends BaseTest{
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void user_clicks_on_login_button_from_registration_page() {
 		RGPage.clickLoginBtn();
-		Assert.assertEquals(driver.getTitle(),"Login");
+		Assert.assertEquals(ip.getPageTitle(),"Login");
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void user_clicks_on_sign_in_button_from_registration_page() {
 		RGPage.clickSignInBtn();
-		Assert.assertEquals(driver.getTitle(),"Login");
+		Assert.assertEquals(ip.getPageTitle(),"Login");
 	}
 
 }

@@ -15,6 +15,8 @@ public class GraphPage {
 	public By graphText=By.cssSelector("strong .bg-secondary");
 
 	public By graphRepresentationsLink= By.cssSelector("a[href='graph-representations']");
+	public By graphTopicsList = By.cssSelector("ul a.list-group-item");
+
 	public By graphRepresentationsText=By.cssSelector("strong .bg-secondary");
 	public By practiceQuestionsLink=By.cssSelector("a[href='/graph/practice']");
 
@@ -30,4 +32,7 @@ public class GraphPage {
 		driver.findElement(practiceQuestionsLink).click();
 	}
 
+	public void clickOnGraphTopListByPosition(int position) {
+		driver.findElements(graphTopicsList).get(position).click();
+	}
 }
