@@ -3,6 +3,144 @@ package Utilities;
 import org.testng.annotations.DataProvider;
 
 public class TestDataProvider {
+	
+	@DataProvider(name="arrayValidcodeTopics")
+	public Object[][] arrayValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"},
+			{2,"print'Hello'"},
+			{3,"print'Hello'"}
+		};
+	}
+    
+	@DataProvider(name="arrayInValidcodeTopics")
+	public Object[][] arrayInValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"},
+			{2,"ABC"},
+			{3,"ABC"}
+		};
+	}
+
+    @DataProvider(name="graphValidcodeTopics")
+	public Object[][] graphValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"}
+		};
+	}
+    
+	@DataProvider(name="graphInValidcodeTopics")
+	public Object[][] graphInValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"}	
+		};
+	}
+
+    @DataProvider(name="llValidcodeTopics")
+	public Object[][] llValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"},
+			{2,"print'Hello'"},
+			{3,"print'Hello'"},
+			{4,"print'Hello'"},
+			{5,"print'Hello'"},
+			{6,"print'Hello'"}
+		};
+	}
+    
+	@DataProvider(name="llInValidcodeTopics")
+	public Object[][] llInValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"},
+			{2,"ABC"},
+			{3,"ABC"},
+			{4,"ABC"},
+			{5,"ABC"},
+			{6,"ABC"}
+		};
+	}
+
+    @DataProvider(name="queueValidcodeTopics")
+	public Object[][] queueValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"},
+			{2,"print'Hello'"},
+			{3,"print'Hello'"}
+		};
+	}
+    
+	@DataProvider(name="queueInValidcodeTopics")
+	public Object[][] queueInValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"},
+			{2,"ABC"},
+			{3,"ABC"}
+		};
+	}
+
+    @DataProvider(name="stackValidcodeTopics")
+	public Object[][] stackValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"},
+			{2,"print'Hello'"}
+		};
+	}
+    
+	@DataProvider(name="stackInValidcodeTopics")
+	public Object[][] InValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"},
+			{2,"ABC"}
+		};
+	}
+
+    @DataProvider(name="treeValidcodeTopics")
+	public Object[][] treeValidcodeTopics() {
+		return new Object[][] {
+			{0,"print'Hello'"},
+			{1,"print'Hello'"},
+			{2,"print'Hello'"},
+			{3,"print'Hello'"},
+			{4,"print'Hello'"},
+			{5,"print'Hello'"},
+			{6,"print'Hello'"},
+			{7,"print'Hello'"},
+			{8,"print'Hello'"},
+			{9,"print'Hello'"},
+			{10,"print'Hello'"},
+			{11,"print'Hello'"},
+			{12,"print'Hello'"}	
+		};
+	}
+    
+	@DataProvider(name="treeInValidcodeTopics")
+	public Object[][] treeInValidcodeTopics() {
+		return new Object[][] {
+			{0,"ABC"},
+			{1,"ABC"},
+			{2,"ABC"},
+			{3,"ABC"},
+			{4,"ABC"},
+			{5,"ABC"},
+			{6,"ABC"},
+			{7,"ABC"},
+			{8,"ABC"},
+			{9,"ABC"},
+			{10,"ABC"},
+			{11,"ABC"},
+			{12,"ABC"}	
+		};
+	}
 
     @DataProvider(name = "pythonCodeRow0")
     public Object[][] provideCodeData_0() {
@@ -157,143 +295,5 @@ public class TestDataProvider {
             {"Register", 8},
         };
     }
-    
-    @DataProvider(name="arrayValidcodeTopics")
-	public Object[][] arrayValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"}
-		};
-	}
-    
-	@DataProvider(name="arrayInValidcodeTopics")
-	public Object[][] arrayInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"}
-		};
-	}
-
-    @DataProvider(name="graphValidcodeTopics")
-	public Object[][] graphValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"}
-		};
-	}
-    
-	@DataProvider(name="graphInValidcodeTopics")
-	public Object[][] graphInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"}	
-		};
-	}
-
-    @DataProvider(name="llValidcodeTopics")
-	public Object[][] llValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"},
-			{4,"print'Hello'"},
-			{5,"print'Hello'"},
-			{6,"print'Hello'"}
-		};
-	}
-    
-	@DataProvider(name="llInValidcodeTopics")
-	public Object[][] llInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"},
-			{4,"ABC"},
-			{5,"ABC"},
-			{6,"ABC"}
-		};
-	}
-
-    @DataProvider(name="queueValidcodeTopics")
-	public Object[][] queueValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"}
-		};
-	}
-    
-	@DataProvider(name="queueInValidcodeTopics")
-	public Object[][] queueInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"}
-		};
-	}
-
-    @DataProvider(name="stackValidcodeTopics")
-	public Object[][] stackValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"}
-		};
-	}
-    
-	@DataProvider(name="stackInValidcodeTopics")
-	public Object[][] InValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"}
-		};
-	}
-
-    @DataProvider(name="treeValidcodeTopics")
-	public Object[][] treeValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"},
-			{4,"print'Hello'"},
-			{5,"print'Hello'"},
-			{6,"print'Hello'"},
-			{7,"print'Hello'"},
-			{8,"print'Hello'"},
-			{9,"print'Hello'"},
-			{10,"print'Hello'"},
-			{11,"print'Hello'"},
-			{12,"print'Hello'"}	
-		};
-	}
-    
-	@DataProvider(name="treeInValidcodeTopics")
-	public Object[][] treeInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"},
-			{4,"ABC"},
-			{5,"ABC"},
-			{6,"ABC"},
-			{7,"ABC"},
-			{8,"ABC"},
-			{9,"ABC"},
-			{10,"ABC"},
-			{11,"ABC"},
-			{12,"ABC"}	
-		};
-	}
 
 }
