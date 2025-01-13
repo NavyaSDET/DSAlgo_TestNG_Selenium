@@ -59,8 +59,8 @@ public class TreeTestCases extends BaseTest{
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "treeInValidcodeTopics", dataProviderClass = TestDataProvider.class)
-	public void Error_message_displayed_for_invalid_code_on_try_Editor (int topicNumber, String inValidCode) throws InterruptedException {
-		tree.clickOnTreeTopListByPosition(topicNumber);
+	public void Error_message_displayed_for_invalid_code_on_try_Editor (String topicNumber, String inValidCode) throws InterruptedException {
+		tree.clickOnTreeTopListByPosition(Integer.parseInt(topicNumber));
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor(inValidCode);
 		ip.clickOnRunButton();
@@ -69,16 +69,16 @@ public class TreeTestCases extends BaseTest{
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "treeInValidcodeTopics", dataProviderClass = TestDataProvider.class)
-	public void No_error_message_displayed_for_empty_code_on_try_editor(int topicNumber, String inValidCode) {
-		tree.clickOnTreeTopListByPosition(topicNumber);
+	public void No_error_message_displayed_for_empty_code_on_try_editor(String topicNumber, String inValidCode) {
+		tree.clickOnTreeTopListByPosition(Integer.parseInt(topicNumber));
 		ip.clickOnTryHerebutton();
 		ip.clickOnRunButton();
 		Assert.assertFalse(ip.validateElementDisplayed(ip.consoleOutput));
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "treeValidcodeTopics", dataProviderClass = TestDataProvider.class)
-	public void Valid_code_on_try_editor_runs_successfully (int topicNumber, String validCode) {
-		tree.clickOnTreeTopListByPosition(topicNumber);
+	public void Valid_code_on_try_editor_runs_successfully (String topicNumber, String validCode) {
+		tree.clickOnTreeTopListByPosition(Integer.parseInt(topicNumber));
 		ip.clickOnTryHerebutton();
 		ip.enterCodeInEditor(validCode);
 		ip.clickOnRunButton();

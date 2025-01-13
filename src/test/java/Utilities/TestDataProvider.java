@@ -1,145 +1,278 @@
 package Utilities;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
 public class TestDataProvider {
 	
 	@DataProvider(name="arrayValidcodeTopics")
-	public Object[][] arrayValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"}
-		};
+	public Object[][] arrayValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("ArrayPageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="arrayInValidcodeTopics")
-	public Object[][] arrayInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"}
-		};
+	public Object[][] arrayInValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("ArrayPageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name="graphValidcodeTopics")
-	public Object[][] graphValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"}
-		};
+	public Object[][] graphValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("GraphPageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="graphInValidcodeTopics")
-	public Object[][] graphInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"}	
-		};
+	public Object[][] graphInValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("GraphPageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name="llValidcodeTopics")
-	public Object[][] llValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"},
-			{4,"print'Hello'"},
-			{5,"print'Hello'"},
-			{6,"print'Hello'"}
-		};
+	public Object[][] llValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("LinkedListPageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="llInValidcodeTopics")
-	public Object[][] llInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"},
-			{4,"ABC"},
-			{5,"ABC"},
-			{6,"ABC"}
-		};
+	public Object[][] llInValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("LinkedListPageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name="queueValidcodeTopics")
-	public Object[][] queueValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"}
-		};
+	public Object[][] queueValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("QueuePageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="queueInValidcodeTopics")
-	public Object[][] queueInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"}
-		};
+	public Object[][] queueInValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("QueuePageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name="stackValidcodeTopics")
-	public Object[][] stackValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"}
-		};
+	public Object[][] stackValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("StackPageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="stackInValidcodeTopics")
-	public Object[][] InValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"}
-		};
+	public Object[][] InValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("StackPageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name="treeValidcodeTopics")
-	public Object[][] treeValidcodeTopics() {
-		return new Object[][] {
-			{0,"print'Hello'"},
-			{1,"print'Hello'"},
-			{2,"print'Hello'"},
-			{3,"print'Hello'"},
-			{4,"print'Hello'"},
-			{5,"print'Hello'"},
-			{6,"print'Hello'"},
-			{7,"print'Hello'"},
-			{8,"print'Hello'"},
-			{9,"print'Hello'"},
-			{10,"print'Hello'"},
-			{11,"print'Hello'"},
-			{12,"print'Hello'"}	
-		};
+	public Object[][] treeValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("TreePageValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
     
 	@DataProvider(name="treeInValidcodeTopics")
-	public Object[][] treeInValidcodeTopics() {
-		return new Object[][] {
-			{0,"ABC"},
-			{1,"ABC"},
-			{2,"ABC"},
-			{3,"ABC"},
-			{4,"ABC"},
-			{5,"ABC"},
-			{6,"ABC"},
-			{7,"ABC"},
-			{8,"ABC"},
-			{9,"ABC"},
-			{10,"ABC"},
-			{11,"ABC"},
-			{12,"ABC"}	
-		};
+	public Object[][] treeInValidcodeTopics() throws IOException {
+		File excelFile=new File("./src/test/resources/Excel/practiceCode.xlsx");
+		FileInputStream fis=new FileInputStream(excelFile);
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet= workbook.getSheet("TreePageInValidCode");
+		int Rowno=sheet.getPhysicalNumberOfRows();
+		int Cellno=sheet.getRow(0).getLastCellNum();
+		Object[][] topicValidcode=new Object[Rowno-1][Cellno]; 
+		
+		for(int i=0;i<Rowno-1;i++) {
+			for(int j=0; j<Cellno; j++ ) {
+				DataFormatter df=new DataFormatter();
+				topicValidcode[i][j]=df.formatCellValue(sheet.getRow(i+1).getCell(j));
+			}
+		}
+		
+		workbook.close();
+		fis.close();
+		return topicValidcode;
 	}
 
     @DataProvider(name = "pythonCodeRow0")
