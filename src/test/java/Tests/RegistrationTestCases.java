@@ -61,19 +61,16 @@ public class RegistrationTestCases extends BaseTest{
 		{			       
 			try {
 				RGPage.enterUsername(userName);
-				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			try {
 				RGPage.enterPassword(password);
-				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			try {
 				RGPage.enterPasswordConfirmation(ConfirmPwd);
-				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}        
