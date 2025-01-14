@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
 import Utilities.ExcelReader;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
@@ -163,68 +165,5 @@ public class RegistrationPage {
 		this.clickRegisterBtn_GetStartedPage();
 
 	}
-	//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////   Enter INVALID Credentials methods
-/*	public void enterUsername_hardcoded(String usrname)
-{
-driver.findElement(UsernameTextbox).sendKeys(usrname);
-}
-
-public void enterPassword_hardcoded(String pswd)
-{
-driver.findElement(PasswordTextbox).sendKeys(pswd);
-}
-
-public void enterConfirmPassword(String confirmPswd)
-{
-driver.findElement(ConfirmPasswordTextbox).sendKeys(confirmPswd);
-}
-
-public void enterUsernameAndPswdAndConfirmPswdAndClickRegisterBtn(String username, String password, String confirm_password)
-{
-this.enterUsername_hardcoded(username);
-this.enterPassword_hardcoded(password);
-this.enterConfirmPassword(confirm_password);
-this.clickRegisterBtn_RegisterPage();
-
-} */
-
-///////////////////////////  ERROR MAPPING IN TestData.XLSX	///////////////////
-
-/*	public void validateErrorMsgRegistration(String errorMessage) {
-String actualMsg = text_errorMsg.getText();
-
-Assert.assertEquals(actualMsg,errorMessage);
-System.out.println("Error Displayed!");
-}
-
-public void validateToolTipErrorMsgRegistration(String errorMessage) {
-
-WebElement activeElement = driver.switchTo().activeElement();
-String messageStr = activeElement.getAttribute("validationMessage");
-//LoggerLoad.info("Actual message appeared on screen: " + messageStr);
-Assert.assertEquals(messageStr,errorMessage);
-}
-
-
-public void validateToolTipErrorMsgExcel(String sheetname, int row) throws InvalidFormatException, IOException, Exception {
-
-ExcelReader reader = new ExcelReader();
-
-List<Map<String, String>> testdata = reader.getData("./src/test/resources/ExcelTestData/LoginData.xlsx", sheetname);
-
-String expectedMessage = testdata.get(row).get("message");
-validateToolTipErrorMsgRegistration(expectedMessage);
-}
-
-public void validateErrorMsgFromExcel(String sheetname, int row) throws InvalidFormatException, IOException, Exception {
-ExcelReader reader = new ExcelReader();
-
-List<Map<String, String>> testdata = reader.getData("./src/test/resources/ExcelTestData/LoginData.xlsx", sheetname);
-
-String expectedMessage = testdata.get(row).get("message");
-validateErrorMsgRegistration(expectedMessage);
-
-}*/
 }

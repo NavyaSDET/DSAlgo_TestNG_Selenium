@@ -32,42 +32,24 @@ public class LoginTestNav extends BaseTest{
 		ip.clickOnSignInlink();
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow4", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page_with_blank_info (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		String messageStr = ip.getValidationMessage();
-		Assert.assertEquals(messageStr, "Please fill out this field.");
+
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "invalidLogin", dataProviderClass = TestDataProvider.class)
+	public void testSignInInvalidData(String username, String password, String ExpectedMsg) throws InterruptedException {	
+		login.loginValiduser(username, username);
+		if((username.trim()==""&& password.trim()=="")||(password.trim()=="")||username.trim()=="")
+		{
+			String messageStr = ip.getValidationMessage();
+			Assert.assertEquals(messageStr, "Please fill out this field.");
+		}
+		else {
+			Assert.assertEquals(ip.getTextForElement(login.warningMessage), ExpectedMsg); 
+		}
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow5", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page_with_blank_password (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		String messageStr = ip.getValidationMessage();
-		Assert.assertEquals(messageStr,"Please fill out this field.");
-	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow1", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page__with_blank_username (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		String messageStr = ip.getValidationMessage();
-		Assert.assertEquals(messageStr,"Please fill out this field.");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow0", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page_with_invalid_username_and_password (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"Invalid Username and Password");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow3", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page_with_valid_username_and_invalid_password (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"Invalid Username and Password");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "loginRow2", dataProviderClass = TestDataProvider.class)
-	public void DS_Algo_Sign_in_Page__with_valid_username_and_Valid_password  (String sheetName, int rowNumber) throws InterruptedException, InvalidFormatException, IOException, OpenXML4JException {
-		login.loginValiduser(sheetName, rowNumber);
-		Assert.assertEquals(ip.getTextForElement(login.warningMessage),"You are logged in");
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "validLogin", dataProviderClass = TestDataProvider.class)
+	public void DS_Algo_Sign_in_Page__with_valid_username_and_Valid_password  (String username,String password, String ExpectedMsg) throws InterruptedException {
+		login.loginValiduser(username, password);
+		Assert.assertEquals(ip.getTextForElement(login.warningMessage), ExpectedMsg);
 	}
 }

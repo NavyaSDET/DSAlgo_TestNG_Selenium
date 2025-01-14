@@ -1,20 +1,16 @@
 package Tests;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import PageObjects.HomePage;
 import PageObjects.IntroductionPage;
 import PageObjects.RegistrationPage;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
-import Utilities.ExcelReader;
 import Utilities.RetryAnalyzer;
 import Utilities.TestDataProvider;
 import BaseTest.BaseTest;
@@ -34,109 +30,66 @@ public class RegistrationTestCases extends BaseTest{
 		hp.clickOnHomePageGetStartedButton();
 		ip.clickOnRegisterlink();
 	}
+	
+	protected String getRandomString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
 
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow7", dataProviderClass = TestDataProvider.class)
+    }
 
-	public void TC_01_validate_RegistrationIsSuccessful_onAllValidCredentials(String sheetName, int rowNumber ) throws IOException, OpenXML4JException {
-		ExcelReader reader = new ExcelReader();
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");
+	public void TC_01_validate_RegistrationIsSuccessful_onAllValidCredentials( ) throws IOException, OpenXML4JException {
+		String username = getRandomString();
+		String password = getRandomString();
 		RGPage.enterUsername(username);
 		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
+		RGPage.enterPasswordConfirmation(password);
 		RGPage.clickRegisterBtn_RegisterPage();	
 	}
 
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow6", dataProviderClass = TestDataProvider.class)
-	public void TC_02_validate_Error_Message_when_DifferentPasswordsIn_Both_PswdFields(String sheetName, int rowNumber ) throws IOException, OpenXML4JException {
-		ExcelReader reader = new ExcelReader();
 
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");
-		RGPage.enterUsername(username);
-		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
-		RGPage.clickRegisterBtn_RegisterPage();	
-		String expectedErrorMsg = "password_mismatch:The two password fields didn’t match.";
-		String actualErrorMsg = RGPage.showErrorMsg_PswdDoNotMatch();
-		Assert.assertEquals(actualErrorMsg, expectedErrorMsg);  //Assertion
-	}
-
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow0", dataProviderClass = TestDataProvider.class)
-	public void the_user_clicks_register_button_with_all_fields_empty_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException, InterruptedException {
-		ExcelReader reader = new ExcelReader();
-
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");
-
-		RGPage.enterUsername(username);
-		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
-		RGPage.clickRegisterBtn_RegisterPage();	
-		String validationMessage = ip.getValidationMessage();
-		Assert.assertEquals(validationMessage, "Please fill out this field.");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow3", dataProviderClass = TestDataProvider.class)
-	public void the_user_clicks_register_button_after_entering_a_username_with_spacebar_characters_other_than_digits_and_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException {
-		ExcelReader reader = new ExcelReader();
-
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");RGPage.enterUsername("dgfgf awe33");
-		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
-		RGPage.clickRegisterBtn_RegisterPage();	
-		Assert.assertEquals(ip.getPageTitle(),"NumpyNinja");
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow4", dataProviderClass = TestDataProvider.class)
-	public void the_user_clicks_register_button_after_entering_a_password_with_only_numeric_data_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException {
-		ExcelReader reader = new ExcelReader();
-
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");
-		RGPage.enterUsername(username);
-		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
-		RGPage.clickRegisterBtn_RegisterPage();
-		String expectedErrorMsg = "password_mismatch:The two password fields didn’t match.";
-		String actualErrorMsg = RGPage.showErrorMsg_PswdDoNotMatch();
-		Assert.assertEquals(actualErrorMsg, expectedErrorMsg);
-	}
-
-	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "RegisterRow5", dataProviderClass = TestDataProvider.class)
-	public void the_user_clicks_register_button_after_entering_a_password_with_characters_less_than_eight_on_registration_form(String sheetName, int rowNumber ) throws IOException, OpenXML4JException	{
-		ExcelReader reader = new ExcelReader();
-
-		List<Map<String, String>> testdata = reader.getData("./src/test/resources/Excel/TestData.xlsx", sheetName);
-
-		String username = testdata.get(rowNumber).get("username");
-		String password = testdata.get(rowNumber).get("password");
-		String passwordConfirm = testdata.get(rowNumber).get("password confirmation");
-		RGPage.enterUsername(username);
-		RGPage.enterPassword(password);
-		RGPage.enterPasswordConfirmation(passwordConfirm);
-		RGPage.clickRegisterBtn_RegisterPage();
-		String expectedErrorMsg = "password_mismatch:The two password fields didn’t match.";
-		String actualErrorMsg = RGPage.showErrorMsg_PswdDoNotMatch();
-		Assert.assertEquals(actualErrorMsg, expectedErrorMsg);  //Assertion
+	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "registerData", dataProviderClass = TestDataProvider.class)
+	public void registerPageScenarios(String userName, String password, String ConfirmPwd, String ExpectedMsg) throws IOException, OpenXML4JException, InterruptedException {
+		{			       
+			try {
+				RGPage.enterUsername(userName);
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			try {
+				RGPage.enterPassword(password);
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			try {
+				RGPage.enterPasswordConfirmation(ConfirmPwd);
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}        
+			RGPage.clickRegisterBtn_RegisterPage();	
+			if((userName.trim()==""&& password.trim()==""&& ConfirmPwd.trim()=="")||(password.trim()==""&& ConfirmPwd.trim()=="")||(ConfirmPwd.trim()=="")||userName.trim()=="")
+			{
+				Assert.assertEquals(ip.getValidationMessage(), ExpectedMsg);
+			}
+			else {
+				Assert.assertEquals(RGPage.showErrorMsg_PswdDoNotMatch(), ExpectedMsg);
+				System.out.println("Testing registration with Username: " + userName + 
+						", Password: " + password + 
+						", Confirm Password: " + ConfirmPwd +
+						", ExpectedMsg: " + RGPage.showErrorMsg_PswdDoNotMatch() );
+			}
+		}
 	}
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)

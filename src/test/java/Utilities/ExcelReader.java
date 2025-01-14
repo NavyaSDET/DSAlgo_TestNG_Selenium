@@ -1,6 +1,7 @@
 package Utilities;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -95,5 +96,35 @@ public class ExcelReader {
 
 		return totalRow;
 	}
+	
+	public static Object[][] getExcelData(String filePath, String sheetName) {
+		 Object[][] data = null;
+
+	        try (FileInputStream fis = new FileInputStream(filePath);
+	             Workbook workbook = new XSSFWorkbook(fis)) {
+
+	            Sheet sheet = workbook.getSheet(sheetName);
+	            int rowCount = sheet.getPhysicalNumberOfRows();
+	            System.out.println("rowCOunt is " + rowCount);
+	            int colCount = sheet.getRow(0).getPhysicalNumberOfCells();
+
+	            data = new Object[rowCount - 1][colCount];
+	            
+	            for (int i = 1; i < rowCount; i++) {
+	                Row row = sheet.getRow(i);
+	                if(row!=null)
+	                {
+	                for (int j = 0; j < colCount; j++) {
+	                    Cell cell = row.getCell(j);
+	    	            System.out.println("data is " + row.getCell(j));
+	                    data[i - 1][j] = (cell == null) ? "" : cell.toString().trim(); // Handle empty cells
+	                }   
+	                }
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        return data;
+	    }	
 
 }
